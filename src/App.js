@@ -1,24 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./Pages/Login";
+import Notification from "./Pages/Notification";
+import {createBrowserRouter,createRoutesFromElements,Route ,RouterProvider} from "react-router-dom";
+import AlertState from "./Contexts/Alert/AlertState";
+import Dashboard from "./Pages/DashboardPages/Dashboard";
+import Homepage from "./Pages/Homepages/Homepage";
+import Announcement from "./Pages/Homepages/Announcement";
+import DashAnnouncement from "./Pages/DashboardPages/DashAnnouncement";
+import DashNavbar from "./Pages/DashboardPages/DashNavbar";
+import DashCarousel from "./Pages/DashboardPages/DashCarousel";
+import About from "./Pages/Homepages/About";
+import DashFaculty from "./Pages/DashboardPages/DashFaculty";
+import Contact from "./Pages/Homepages/Contact";
+
+
 
 function App() {
+  const router =createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/"  >
+        {/* All Gen PUrpose Routes */}
+        <Route index element={<Homepage/>}/>
+        <Route path="/announcements" element={<Announcement/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/contact" element={<Contact/>}/>  
+        
+        
+        
+        
+        {/* All Admin Routes */}
+        <Route path="/admin/dashboard" element={
+        <>
+        <AlertState>
+        <Dashboard/>
+        <Notification/>
+        </AlertState>
+        </>
+        }/>
+
+        <Route path="/admin/dashboard/announcement" element={
+        <>
+        <AlertState>
+        <DashNavbar/> 
+        <Notification/> 
+        <DashAnnouncement/>  
+        </AlertState>
+        </>
+        }/>
+
+<Route path="/admin/dashboard/carousels" element={
+        <>
+        <AlertState>
+        <DashNavbar/> 
+        <Notification/> 
+        <DashCarousel/>  
+        </AlertState>
+        </>
+        }/>
+
+<Route path="/admin/dashboard/faculty" element={
+        <>
+        <AlertState>
+        <DashNavbar/> 
+        <Notification/> 
+        <DashFaculty/>  
+        </AlertState>
+        </>
+        }/>        
+          
+        <Route path="/admin/login" element={
+        <>
+        <AlertState>
+        <Notification/>
+        <Login/>
+        </AlertState>
+        </>
+        }/>
+
+      </Route>
+    )
+    )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RouterProvider router={router}>
+    </RouterProvider>
   );
 }
 

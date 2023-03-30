@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Asul:wght@700&display=swap');
+.ctop-container p{
+    font-size: .85rem;
+    font-weight: 300;
+    color: rgba(39, 44, 43, 0.836);
+    margin-bottom: .1rem;
+    font-family: 'Asul', sans-serif;
+}
+.cp{
+    align-self: center;
+    padding-top: .25rem;
+    color: #110e0e;
+}
+.cnavitem{
+    justify-content: left;
+}
+.cnavbar-div{
+    background:rgba(255, 255, 255, 0.913) ;
+    margin: 0px;
+    padding: 0px;
+}
+.cheader-logo{
+    width: 7.7rem;
+    height: 3.2rem;
+}
+
+.cnavitem-div .active{
+    color: #1F48F2 !important;
+    margin-left: .3125rem;
+    margin-right: .3125rem;
+        
+}
+
+.navbar-toggler{
+    border-color :transparent!important;
+    padding: 0px !important;
+
+}
+.navbar-toggler:focus{
+    box-shadow: 0 0 0 0 !important;
+}
+.cnav-link{
+    color: #110e0eb2 !important;
+    font-size: .9rem    !important;
+}

@@ -1,13 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Asul:wght@700&display=swap');
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+::-webkit-scrollbar{
+  display: none;
+}
+
 body {
+  -webkit-text-size-adjust: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* background-color: rgb(242,237,231); */
+  /* background-color: #172D13; */
+  font-family: -apple-system, BlinkMacSyste'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Navbar */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.zoom:hover{
+ transform: scale(1.1);
+}
+.zoom{
+  transform: scale(1.056);
+ }
+
+ 
+
+ /* Bottom NAvbar */
+ 
+ .iicon {
+     height: 45px;
+     border-radius: 30px;
+     padding-top: 12px;
+     padding-bottom: 38px;
+     padding-right: 12px;
+     padding-left: 5px;
+     margin-bottom: 8px;
+     margin-right: 2px; 
+     /* background-color: rgba(102,212,202,.7); */
+ }
+
+ .youtube{
+  color:#FF0000;
+ }
+.whatsapp{
+  color:#25D366;
+}
+.linkedin{
+  color: #0A66C2;
+}
+.facebook{
+  color: #1877F2;
+}
+.instagram{
+  color: #F33FD8;
+} 
+ .iicon:hover{
+   transform: scale(1.5);
+   transition-duration: 25ms;
+ }
+ 
+ .clgaddress {
+     font-family: 'Asul', sans-serif;
+     color: black;
+     font-size: 18px;
+     font-weight: 500;
+ }
+ 
+ .heading {
+     color:black;
+     font-weight: 700;
+     font-size: 20px;
+     font-family: "roboto";
+ }
+ 
+ .list {
+     list-style-type: none;
+     padding-left: 0px;
+ }
+ span {
+     font-size: 18px;
+     padding-left: .8rem;
+     color: rgb(0, 0, 0);
+     font-family: "Roboto";
+     font-weight: 300;
+ 
+ }
+ 
+ .mainbottomnavbardiv{
+  background-color: rgba(215, 214, 223, 0.919);
+  padding-top: .1rem;
+ }
+
+
+
+/* REC ANN NEWS  on Homepage*/
+.RNFlexContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+}
+ .allann{
+  font-family: 'Asul', sans-serif;
+ }
+  .recentanndiv::-webkit-scrollbar{
+    display: none;
+    scroll-behavior: smooth;
+    
+  }
+  .recentanndiv{
+    min-height: 6.50rem;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+
+  /* No Wrap in ann delete section Dashboard */
+  .overflowcut {
+      max-width: 95%;
+      margin-bottom: .4rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
+
+
+.mySwiper{
+    display: block;
+    height: 28rem;
+  }
+
+
+
+
+
+
+.placement-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  background-color:#f1f4f7;
+}
+
+.placement-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.placement-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.placement-icon:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.placement-details {
+  text-align: center;
+}
+
+.placement-details h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.placement-details p {
+  font-size: 36px;
+  font-weight: bold;
+  color: #3d3d3d;
+}
+
+/* Contact */
+
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:400,700');
+
+.xcontainer {
+  background: #F8F8F8;
+  width: 900px;
+  height: 600px;
+  margin: 5% auto;
+  box-shadow: 0px 0px 10px #C8C7D9;
+  position: relative;
+}
+
+.xcontainer .map {
+  width: 45%;
+  float: left;
+}
+
+.xcontainer .xcontact-form {
+  width: 53%;
+  margin-left: 2%;
+  float: left;
+}
+
+.xcontainer .xcontact-form .xtitle {
+  font-size: 2.5em
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px)
+and (orientation: portrait) {
+  .carmobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-position: center;
+   background-size: 40rem  !important;
+   height: 20rem !important;
+   
+  }
+   .mySwiper{
+     display: block;
+     height: auto;
+   }
+
+  .placement-icon {
+    width: 80px;
+    height: 80px;
+  }
+  .placement-details h3 {
+    font-size: 18px;
+  }
+  .placement-details p {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 480px)
+and (orientation: landscape) {
+  .carmobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-position: center;
+   background-size: 40rem  !important;
+   height: 20rem !important;
+   
+  }
+ 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .carmobile {
+    display: flex;
+    height: 20rem !important;
+    flex-direction: row;
+    justify-content: center;
+    background-position: center;
+    background-size: 54rem  !important;
+   
+  }
+  .mySwiper{
+    display: block;
+    height: auto;
+  }
+ 
+}
+
