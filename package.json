@@ -1,6 +1,7 @@
 {
   "name": "spsuweb",
   "version": "0.1.0",
+  "main": "backend/index.js",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -21,8 +22,10 @@
     "swiper": "^9.0.5",
     "web-vitals": "^2.1.4"
   },
+  
   "scripts": {
-    "kardo": "react-scripts start",
+    "kardo": "concurrently --kill-others \"npm run start\" \"npm run backend\"",
+    "backend":"nodemon",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
