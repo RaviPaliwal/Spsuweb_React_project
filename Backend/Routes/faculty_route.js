@@ -13,14 +13,16 @@ router.post("/addfaculty", fetchuser, (req, res) => {
       res.json(err);
     } else {
       const ext = path.extname(req.file.originalname);
-      const contact = {
-        linkedin: req.body.linkedin,
-      };
       const faculty = new Faculty({
         name: req.body.name,
         about: req.body.about,
         post: req.body.post,
-        contacts: contact,
+        sociallinks:{
+          linkedin:req.body.linkedin,
+          instagram:req.body.instagram,
+          gmail:req.body.gmail,
+          vidvan:req.body.vidvan,
+        },
         image: {
           extention: ext,
           path: "/images/" + req.body.title + ext,
@@ -35,6 +37,14 @@ router.post("/addfaculty", fetchuser, (req, res) => {
         })
         .catch((err) => {
           res.json(err);
+          const path = `./Uploads/FacultyImages/${req.body.title + ext}`;
+          fs.unlink(path, async (err) => {
+        if (err) {
+          console.error(err);
+          res.json({ success: false, responce: "Something Went Wrong" });
+          return;
+        }
+        });
         });
     }
   });

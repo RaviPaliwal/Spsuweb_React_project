@@ -18,9 +18,12 @@ const Faculty = new Schema({
     type: String,
     require: true,
   },
-  contacts: {
+  sociallinks: [{
     linkedin: String,
-  },
+    instagram:String,
+    gmail:String,
+    vidvan:String,
+  }],
   image: {
     data: Buffer,
     extention: String,

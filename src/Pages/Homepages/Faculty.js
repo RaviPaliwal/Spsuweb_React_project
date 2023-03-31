@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, CardMedia, Grid, IconButton, Link, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  IconButton,
+  Link,
+  Typography,
+} from "@mui/material";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { Instagram, YouTube, Facebook, Mail } from "@mui/icons-material";
 
 const FacultyPage = () => {
   const [faculty, setFaculty] = useState([]);
@@ -35,68 +44,108 @@ const FacultyPage = () => {
 
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex - numCards >= 0 ? prevIndex - numCards : faculty.length - numCards
+      prevIndex - numCards >= 0
+        ? prevIndex - numCards
+        : faculty.length - numCards
     );
   };
 
-  return (<>
-    <h4 className="mb-3"><center>Our Faculty</center></h4>
-    <Grid className="mb-5" container justifyContent="center" alignItems="center">
-      {isLoading ? (
-        <Typography>Loading...</Typography>
-      ) : (
-        <>
-          <Grid item xs={1}>
-            <IconButton onClick={handlePrevClick}>
-              <ChevronLeft />
-            </IconButton>
-          </Grid>
-          <Grid item xs={10}>
-            <Grid container justifyContent="center" alignItems="center">
-              {faculty
-                .slice(currentIndex, currentIndex + numCards)
-                .map((facultyMember) => (
-                  <Grid item key={facultyMember._id}>
-                    <Card sx={{ maxWidth: 345, mx: 2 ,my:2 }}>
-                      <CardMedia
-                        component="img"
-                        height="140"
-                        image={"http://localhost:5000"+facultyMember.image.path}
-                        alt={facultyMember.name}
-                      />
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {facultyMember.name}
-                        </Typography>
-                        <Typography variant="subtitle1" color="text.secondary">
-                          {facultyMember.post}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {facultyMember.description}
-                        </Typography>
-                        {/* <Typography sx={{ mt: 1 }}>
-                          {facultyMember.socialLinks.map((link) => (
-                            <Link href="/" target="_blank" key={link.id} color="inherit">
-                              <IconButton>{link.icon}</IconButton>
-                            </Link>
-                          ))}
-                        </Typography> */}
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
+  const socialIcons = {
+    instagram: <Instagram />,
+    vidvan: <YouTube />,
+    facebook: <Facebook />,
+    gmail: <Mail />,
+  };
+
+  return (
+    <>
+      <h4 className="mb-3">
+        <center>Our Faculty</center>
+      </h4>
+      <Grid
+        className="mb-5"
+        container
+        justifyContent="center"
+        alignItems="center"
+      >
+        {isLoading ? (
+          <Typography>Loading...</Typography>
+        ) : (
+          <>
+            <Grid item xs={1}>
+              <IconButton onClick={handlePrevClick}>
+                <ChevronLeft />
+              </IconButton>
             </Grid>
-          </Grid>
-          <Grid item xs={1}>
-            <IconButton onClick={handleNextClick}>
-              <ChevronRight />
-            </IconButton>
-          </Grid>
-        </>
-      )}
-    </Grid></>
+            <Grid item xs={10}>
+              <Grid container justifyContent="center" alignItems="center">
+                {faculty
+                  .slice(currentIndex, currentIndex + numCards)
+                  .map((facultyMember) => (
+                    <Grid item key={facultyMember._id}>
+                      <Card sx={{ width:300 ,maxWidth: 480, mx: 2, my: 2 }}>
+                        <CardMedia
+                          component="img"
+                          height="350"
+                          image={
+                            "http://localhost:5000" + facultyMember.image.path
+                          }
+                          alt={facultyMember.name}
+                        />
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" class="text-center" component="div">
+                            {facultyMember.name}
+                          </Typography>
+                          <Typography
+                            variant="subtitle2"
+                            className="text-success text-center"
+                          >
+                          {facultyMember.post}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary" className="text-center">
+                            {facultyMember.about}
+                          </Typography>
+                          <Typography sx={{ mt: 1 }} className="text-center">
+                              {facultyMember.sociallinks&&<Typography sx={{ mt: 1 }}>
+                                  <Link
+                                    href={facultyMember.sociallinks[0].instagram}
+                                    target="_blank"
+                                    key={5}
+                                    color="inherit"
+                                  >
+                                    <IconButton>
+                                      {socialIcons[Instagram]}
+                                      <Instagram/>
+                                    </IconButton>
+                                  </Link>
+                                  <Link
+                                    href={facultyMember.sociallinks[0].vidvan}
+                                    target="_blank"
+                                    key={5}
+                                    color="inherit"
+                                  >
+                                    <IconButton>
+                                      <YouTube/>
+                                    </IconButton>
+                                  </Link>
+                              </Typography>}
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  ))}
+              </Grid>
+            </Grid>
+            <Grid item xs={1}>
+              <IconButton onClick={handleNextClick}>
+                <ChevronRight />
+              </IconButton>
+            </Grid>
+          </>
+        )}
+      </Grid>
+    </>
   );
 };
 
 export default FacultyPage;
-
