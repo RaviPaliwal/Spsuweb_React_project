@@ -17,6 +17,7 @@ router.post("/addfaculty", fetchuser, (req, res) => {
         name: req.body.name,
         about: req.body.about,
         post: req.body.post,
+        title:req.body.title,
         sociallinks:{
           linkedin:req.body.linkedin,
           instagram:req.body.instagram,
@@ -37,14 +38,6 @@ router.post("/addfaculty", fetchuser, (req, res) => {
         })
         .catch((err) => {
           res.json(err);
-          const path = `./Uploads/FacultyImages/${req.body.title + ext}`;
-          fs.unlink(path, async (err) => {
-        if (err) {
-          console.error(err);
-          res.json({ success: false, responce: "Something Went Wrong" });
-          return;
-        }
-        });
         });
     }
   });
@@ -68,16 +61,16 @@ router.post("/addfaculty", fetchuser, (req, res) => {
       fs.unlink(path, async (err) => {
         if (err) {
           console.error(err);
-          res.json({ success: false, responce: "Something Went Wrong" });
+          res.json({ success: true, responce: "faculty image not found for deletion" });
           await Faculty.deleteMany({ name: req.body.name });
           return;
         } else {
           await Faculty.deleteMany({ name: req.body.name });
-          res.json({ responce: "Deleted Slide Successfuly", success: true });
+          res.json({ responce: "Deleted Faculty Successfuly", success: true });
         }
       });
     } else {
-      res.json({ responce: "Slide Title Not Found" });
+      res.json({ responce: "Faculty Not Found" });
     }
   });
 

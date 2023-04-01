@@ -7,9 +7,6 @@ const Faculty = new Schema({
     required: true,
     unique: true,
   },
-  title: {
-    type: String,
-  },
   post: {
     type: String,
     required: true,
@@ -18,12 +15,18 @@ const Faculty = new Schema({
     type: String,
     require: true,
   },
+  title:{
+    type:String,
+    default:Date.now,
+
+  },
   sociallinks: [{
     linkedin: String,
     instagram:String,
     gmail:String,
     vidvan:String,
   }],
+
   image: {
     data: Buffer,
     extention: String,
@@ -31,8 +34,7 @@ const Faculty = new Schema({
     contentType: String,
   },
   timestamp: {
-    type: Date,
-    default: Date.now,
+    type: Date
   },
 });
 

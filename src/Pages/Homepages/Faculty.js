@@ -87,10 +87,11 @@ const FacultyPage = () => {
                         <CardMedia
                           component="img"
                           height="350"
+                        
                           image={
                             "http://localhost:5000" + facultyMember.image.path
                           }
-                          alt={facultyMember.name}
+                          alt={facultyMember.name+" Image"}
                         />
                         <CardContent>
                           <Typography gutterBottom variant="h5" class="text-center" component="div">
