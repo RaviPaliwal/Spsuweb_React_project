@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import AlertContext from "../../Contexts/Alert/alertContext";
-import { TextField, Button, Grid, Box, Typography } from "@mui/material";
+import { TextField, Button, Grid, Box, Typography,AppBar,Toolbar } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import Loader from "../Homepages/Loader";
+import DashNavbar from "./DashNavbar";
 
 const useStyles = createTheme((theme) => ({
   root: {
@@ -47,7 +48,7 @@ const DashFaculty = () => {
       }
       setfacultyselected(data);
     }
-    console.log(facultyselected);
+    //console.log(facultyselected);
   }
 
   const handleFormSubmit = async (event) => {
@@ -71,7 +72,7 @@ const DashFaculty = () => {
       headers: headersList,
     });
     let data = await response.json();
-    console.log(data);
+    //console.log(data);
     update(data.responce);
     setrefresh(Date.now());
   };
@@ -86,7 +87,7 @@ const DashFaculty = () => {
 
   const handleFileInputChange = (event) => {
     const f = event.target.files[0];
-    console.log(f);
+    //console.log(f);
     setFormData((prevState) => ({
       ...prevState,
       image: f,
@@ -134,6 +135,14 @@ const DashFaculty = () => {
   if (localStorage.getItem("loggedin") === "true") {
     return (
       <>
+        <DashNavbar/>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">
+              Faculty Management
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <Loader open={loaderprop} />
 
         <div className="row justify-content-center">

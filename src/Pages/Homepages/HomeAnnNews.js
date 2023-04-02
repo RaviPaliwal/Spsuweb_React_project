@@ -24,7 +24,7 @@ const HomeAnnNews = () => {
       });
 
       let data = await response.json();
-      console.log(data);
+      //console.log(data);
       setRecAnn(data);
     };
 

@@ -22,7 +22,7 @@ router.post(
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({ msg: errors.array() });
     }
     try {
       // Check whether the user with this email exists already
@@ -30,7 +30,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ error: "Sorry a user with this email already exists" });
+          .json({ msg: "Sorry a user with this email already exists" });
       }
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
@@ -49,10 +49,10 @@ router.post(
       const authtoken = jwt.sign(data, JWT_SECRET);
 
       // res.json(user)
-      res.json({ authtoken });
+      res.json({msg:"New Admin Signed Up",token: authtoken });
     } catch (error) {
       console.error(error.message);
-      res.status(500).send("Internal Server Error");
+      res.status(500).json({msg: "Something Went wrong"});
     }
   }
 );
@@ -110,15 +110,47 @@ router.post(
   }
 );
 
-// ROUTE 3: Get loggedin User Details using: POST "/api/auth/getuser". Login required
-router.post("/getuser", fetchadmin, async (req, res) => {
+// ROUTE 3: Delete
+router.post("/deleteuser", fetchadmin, async (req, res) => {
   try {
-    userId = req.user.id;
-    const user = await User.findById(userId).select("-password");
-    res.send(user);
+    id = req.body.email;
+    password= req.body.password;
+    const user = await User.findOne({email: id})
+    if(user){
+    const passwordCompare = await bcrypt.compare(password, user.password);
+    if(passwordCompare){
+      const r=await User.findOneAndDelete({email: id}) //tHIS LINE NOT WORKING
+      //console.log(r);
+      res.json({msg:`Account ${user.username} Deleted Successfully`});
+      return;
+    }
+    if(!passwordCompare){
+      res.json({msg:`{User Password is Wrong Try Again`});
+      return;
+    }}
+    else{
+      res.json({msg:"Sorry This User Doesn't Exists"})
+    }
+    
   } catch (error) {
     console.error(error.message);
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({msg:"Internal Server Error"});
+  }
+});
+
+
+
+
+
+
+// ROUTE 4: Get all Admins' data
+router.get("/admins", fetchadmin, async (req, res) => {
+  try {
+    const users = await User.find({}, { username: 1, email: 1 });
+    res.json(users);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({msg:"Internal Server Error"});
   }
 });
 module.exports = router;

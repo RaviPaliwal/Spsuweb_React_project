@@ -1,8 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import AlertContext from "../../Contexts/Alert/alertContext";
-import { TextField, Button, Grid, Box, Typography } from "@mui/material";
+import { TextField, Button, Grid, Box, Typography, AppBar, Toolbar } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import Loader from "../Homepages/Loader";
+import DashNavbar from "./DashNavbar";
 
 const useStyles = createTheme((theme) => ({
   root: {
@@ -46,7 +47,7 @@ const DashCarousel = () => {
       }
       setslideselected(data);
     }
-    console.log(slideselected);
+    //console.log(slideselected);
   }
 
   const handleFormSubmit = async (event) => {
@@ -68,7 +69,7 @@ const DashCarousel = () => {
       headers: headersList,
     });
     let data = await response.json();
-    console.log(data);
+    //console.log(data);
     update(data.responce);
     setrefresh(Date.now());
   };
@@ -83,7 +84,7 @@ const DashCarousel = () => {
 
   const handleFileInputChange = (event) => {
     const f = event.target.files[0];
-    console.log(f);
+    //console.log(f);
     setFormData((prevState) => ({
       ...prevState,
       image: f,
@@ -131,8 +132,16 @@ const DashCarousel = () => {
   if (localStorage.getItem("loggedin") === "true") {
     return (
       <>
+        <DashNavbar/>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">
+              Carousel Management
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <Loader open={loaderprop} />
-
+        
         <div className="row justify-content-center">
           {/* Add Form */}
           <form

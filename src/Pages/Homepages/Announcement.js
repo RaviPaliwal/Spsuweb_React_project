@@ -16,7 +16,7 @@ const Announcement = () => {
      });
      
      let data = await response.json();
-     console.log(data);
+     //console.log(data);
      setitem(data)
      
      

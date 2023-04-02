@@ -12,13 +12,12 @@ export default function Notification() {
   //for every time changes Alert Showing Alert
   useEffect(()=>{
     if(Alert!==null){
-      console.log(Alert);
       setShow(true);
     }
     else{
       setShow(false)
     }
-  },[update])
+  },[update,Alert])
 
  const handleClose=()=>{
     setShow(false)

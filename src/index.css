@@ -288,3 +288,74 @@ and (orientation: landscape) {
  
 }
 
+/* Dashboard Main Page CSS */
+.d-admin-form {
+  margin: 50px auto;
+  width: 400px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.d-form-title {
+  text-align: center;
+}
+
+.d-form-group {
+  margin-bottom: 20px;
+}
+
+.d-form-label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.d-form-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #e8e8e8;
+}
+
+.d-form-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0077ff;
+  color: #fff;
+  font-size: 16
+}
+
+/* Contact Css */
+.cuscontainer {
+  background: #9fa9ad59;
+  margin: 5% auto;
+  box-shadow: 0px 0px 16px #C8C7D9;
+  border-radius: 10px;
+  position: relative;
+  border: .8px solid #25D366;
+
+}
+
+.cip {
+  background:#f8f9fa41;
+  width: 60%;
+  padding: 3%;
+  margin: 2% 8%;
+  border: none;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.cip:focus {
+  outline: none;
+  transform: scale(1.05);
+}
+.cusbtn{
+  background-color: #20C997 !important;
+  border: none;
+  outline: none;
+  
+}

@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "../../Assets/spsu_logo_2.png";
-import { Email, Phone, Facebook, Twitter, Instagram, LinkedIn, WhatsApp, YouTube } from '@mui/icons-material';
+import { Email, Phone, Facebook, Instagram, LinkedIn, WhatsApp, YouTube } from '@mui/icons-material';
 
 const BottomNavbar = () => {
   return (
     <section id="ContactUs" className="mainbottomnavbardiv" >
-      <div className="mt-5">
+      <div className="mt-5 position-sticky">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 col-md-4 col-lg-4 d-flex justify-content-center">

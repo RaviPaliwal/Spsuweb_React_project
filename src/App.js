@@ -6,7 +6,6 @@ import Dashboard from "./Pages/DashboardPages/Dashboard";
 import Homepage from "./Pages/Homepages/Homepage";
 import Announcement from "./Pages/Homepages/Announcement";
 import DashAnnouncement from "./Pages/DashboardPages/DashAnnouncement";
-import DashNavbar from "./Pages/DashboardPages/DashNavbar";
 import DashCarousel from "./Pages/DashboardPages/DashCarousel";
 import About from "./Pages/Homepages/About";
 import DashFaculty from "./Pages/DashboardPages/DashFaculty";
@@ -40,7 +39,6 @@ function App() {
         <Route path="/admin/dashboard/announcement" element={
         <>
         <AlertState>
-        <DashNavbar/> 
         <Notification/> 
         <DashAnnouncement/>  
         </AlertState>
@@ -50,7 +48,6 @@ function App() {
 <Route path="/admin/dashboard/carousels" element={
         <>
         <AlertState>
-        <DashNavbar/> 
         <Notification/> 
         <DashCarousel/>  
         </AlertState>
@@ -60,7 +57,6 @@ function App() {
 <Route path="/admin/dashboard/faculty" element={
         <>
         <AlertState>
-        <DashNavbar/> 
         <Notification/> 
         <DashFaculty/>  
         </AlertState>

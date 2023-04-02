@@ -11,16 +11,21 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 const DashNavbar = () => {
     const location = useLocation();
+    const handleLogout = () => {
+        if (window.confirm("Are you sure you want to log out?")) {
+          localStorage.clear();
+          window.location.href = "/";
+        }
+      };
+
     if(localStorage.getItem('loggedin')==="true"){
         return (
   <>
-  
-  <div className="ctop-container container-xxl">
-    <p className="cp d-block fw-bold">CSE Admin Dashboard</p>
-  </div>
       <nav className="p-0 shadow-lg navbar navbar-expand-sm navbar-light">
           <div className="cnavbar-div container-fluid ">
-              <Link className="navbar-brand" to="/"><img className="cheader-logo"src={logo} alt="logo"/></Link>
+          <Link className="navbar-brand " to="/"><img className="cheader-logo"src={logo} alt="logo"/><div className="ctop-container">
+            <p className="cp d-block fw-bold">Department of CSE</p>
+        </div></Link>
               <button className="me-2 cnavbar-toggler navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarID"
                   aria-controls="navbarID " aria-expanded="false" aria-label="Toggle navigation">
                  <span><GrainIcon/></span>
@@ -43,7 +48,7 @@ const DashNavbar = () => {
                       <Link className={`cnav-link nav-link ${location.pathname==="/admin/dashboard/faculty"?"active":""}`} aria-current="page" to="/admin/dashboard/faculty"><CallIcon/>Faculty</Link>
                   </div>
                   <div className="cnavitem-div navbar-nav">
-                    <Link className="btn btn-transperent" to="/" role="button"><LogoutIcon/> Logout</Link>
+                    <Link className="btn btn-transperent" onClick={handleLogout} role="button"><LogoutIcon/> Logout</Link>
                     </div>
               </div>
           </div>

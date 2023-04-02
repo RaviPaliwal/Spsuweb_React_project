@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Navbar from "./Navbar";
+import BottomNavbar from "./BottomNavbar"
 
 const Jumbotron = styled("div")({
   backgroundColor: "#f7f7f7",
@@ -13,13 +14,13 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <Container className="mt-3" maxWidth="md">
-        <Jumbotron>
-          <Typography variant="h5" gutterBottom>
-            <b>About Us</b>
+      <Container className="mt-3" maxWidth="md" >
+        <Jumbotron className="rounded-3" style={{ color: "#5f6175" }}> 
+          <Typography variant="h5" gutterBottom className="text-success">
+            <b><center>About Us</center></b>
             <hr />
           </Typography>
-          <Typography variant="body1" style={{ color: "" }}>
+          <Typography variant="body1" >
             Welcome to the Department of Computer Science and Engineering at
             SPSU! Our department is a premier destination for students who
             aspire to pursue their careers in the field of computer science and
@@ -53,6 +54,7 @@ const About = () => {
           </Typography>
         </Jumbotron>
       </Container>
+      <BottomNavbar/>
     </>
   );
 };

@@ -1,6 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import AlertContext from "../../Contexts/Alert/alertContext";
 import Loader from "../Homepages/Loader";
+import DashNavbar from "./DashNavbar";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 const DashAnnouncement = () => {
   const [loaderprop, setloaderprop] = useState(false);
   const Ac = useContext(AlertContext);
@@ -26,7 +30,7 @@ const DashAnnouncement = () => {
     );
 
     let data = await response.json();
-    console.log(data);
+    //console.log(data);
     setAnn(data);
   };
 
@@ -133,13 +137,21 @@ const DashAnnouncement = () => {
       }
       setselected(data);
     }
-    console.log(selected);
+    //console.log(selected);
   };
 
   if (localStorage.getItem("loggedin") === "true") {
     return (
       <>
         <Loader open={loaderprop} />
+        <DashNavbar />
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6">
+              News And Announcement Management
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <div className="row">
           <div className="col-md-6">
             <form
@@ -194,7 +206,11 @@ const DashAnnouncement = () => {
 
           <div className="col-md-6">
             <form
-              style={{ width: "350px", height: "400px" ,backgroundColor:'#E8F0FE' }}
+              style={{
+                width: "350px",
+                height: "400px",
+                backgroundColor: "#E8F0FE",
+              }}
               className=" shadow-lg container py-5 px-3 rounded-3 mt-5"
             >
               <div className="mb-3">
@@ -236,22 +252,6 @@ const DashAnnouncement = () => {
               </div>
             </form>
           </div>
-
-          {/* <div className="col-md-12 mb-5">
-<form style={{"width":"350px","height":"400px"}} className=' shadow-lg container py-5 px-3 rounded-3 mt-5 bg-light'>
-  <div className="mb-3">
-    <h5 className="text-center" style={{"color":"#DC4157"}} >Delete By Month-Year</h5>
-  </div>
-  <div className="mb-3">
-    <label className="form-label">Enter Month-Year</label>
-    <input  onChange={(e)=>{setmonth(e.target.value)}} type="text" className="form-control" id="exampleInputText" aria-describedby="textHelp" />
-    <p className="mt-3" style={{"fontSize":"12px","color":"GrayText"}}>Example: for January-2023 use 1-2023</p>
-  </div>
-  <div className="col d-flex justify-content-center">
-  <button onClick={handleDeletebyMonthYear} type="submit" className="row btn btn-primary btn">Delete</button>
-  </div>
-</form>
-</div> */}
         </div>
       </>
     );

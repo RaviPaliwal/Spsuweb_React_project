@@ -50,7 +50,7 @@ export default function App() {
         carousel.map((element)=>{
           let uriraw = "http://localhost:5000"+element.image.path;
           let uri =encodeURI(uriraw);
-          console.log(uri);
+          //console.log(uri);
           return(
             <SwiperSlide key={element._id} className="text-center customSwiper">
               <div className="carmobile container-fluid-xl" style={{"backgroundImage": `url(${uri})`, "height":"45rem","backgroundPosition":"center","backgroundRepeat":"no-repeat","backgroundSize":"1280px"}}>

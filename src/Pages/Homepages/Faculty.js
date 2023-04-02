@@ -24,14 +24,14 @@ const FacultyPage = () => {
       .then((data) => {
         if (Array.isArray(data)) {
           setFaculty(data);
-          console.log(data);
+          //console.log(data);
         } else {
-          console.log("Error: response data is not an array");
+          //console.log("Error: response data is not an array");
         }
         setIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error);
         setIsLoading(false);
       });
   }, []);
