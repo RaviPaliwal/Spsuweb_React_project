@@ -5,6 +5,7 @@ import DashNavbar from "./DashNavbar";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import DeleteAnnouncement from "./DeleteAnnouncement";
 const DashAnnouncement = () => {
   const [loaderprop, setloaderprop] = useState(false);
   const Ac = useContext(AlertContext);
@@ -253,6 +254,7 @@ const DashAnnouncement = () => {
             </form>
           </div>
         </div>
+        <DeleteAnnouncement Ann={Ann} setAnn={setAnn} />
       </>
     );
   }

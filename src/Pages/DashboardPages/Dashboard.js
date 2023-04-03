@@ -1,7 +1,8 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import AccessDenied from "./AccessDenied";
 import AlertContext from "../../Contexts/Alert/alertContext";
-import BottomNavbar from "../Homepages/BottomNavbar"
+import BottomNavbar from "../Homepages/BottomNavbar";
+import ContactRequests from "./ContactRequests";
 import {
   AppBar,
   Box,
@@ -11,14 +12,19 @@ import {
   TextField,
   Toolbar,
   Typography,
-  List, ListItem, ListItemText,Avatar,Divider,ListItemAvatar
+  List,
+  ListItem,
+  ListItemText,
+  Avatar,
+  Divider,
+  ListItemAvatar,
 } from "@mui/material";
 import DashNavbar from "./DashNavbar";
 
 const Dashboard = () => {
   const Ac = useContext(AlertContext);
   const { update } = Ac;
-  
+
   const [admins, setAdmins] = useState([]);
   const [call, setcall] = useState(0);
 
@@ -28,8 +34,8 @@ const Dashboard = () => {
         const response = await fetch("http://localhost:5000/auth/admins", {
           method: "GET",
           headers: {
-            "Accept": "*/*",
-            "auth-token": localStorage.getItem("auth-token")
+            Accept: "*/*",
+            "auth-token": localStorage.getItem("auth-token"),
           },
         });
         const data = await response.json();
@@ -40,11 +46,6 @@ const Dashboard = () => {
     }
     fetchData();
   }, [call]);
-
-
-
-
-
 
   const [deleteData, setDeleteData] = useState({
     email: "",
@@ -98,7 +99,7 @@ const Dashboard = () => {
     const data = await response.json();
     update(data.msg);
     e.target.reset();
-    setcall(call+1);
+    setcall(call + 1);
   };
 
   const handleDeleteAdmin = async (e) => {
@@ -118,7 +119,7 @@ const Dashboard = () => {
 
     const data = await response.json();
     update(data.msg);
-    setcall(call+1)
+    setcall(call + 1);
     setDeleteData({
       email: "",
       password: "",
@@ -135,6 +136,15 @@ const Dashboard = () => {
           </Toolbar>
         </AppBar>
 
+        <ContactRequests />
+
+        <div className="mt-5 text-center">
+          <h2>Admin Handling</h2>
+          <p>
+            You can Handle Admins From Here Below is the list Of current Admins provided.
+            You need password for deleting a admin.
+          </p>
+        </div>
 
         {/* Forms Start*/}
         <Container sx={{ mt: 4 }}>
@@ -155,7 +165,7 @@ const Dashboard = () => {
                 }}
               >
                 <Container sx={{ mt: 4 }}>
-                  <Typography variant="h6" sx={{ mb: 2 }} >
+                  <Typography variant="h6" sx={{ mb: 2 }}>
                     Add New Admin
                   </Typography>
                   <TextField
@@ -194,7 +204,7 @@ const Dashboard = () => {
                   <Button
                     type="submit"
                     variant="contained"
-                    sx={{ alignSelf: "center" , mb:3 }}
+                    sx={{ alignSelf: "center", mb: 3 }}
                   >
                     Add Admin
                   </Button>
@@ -213,7 +223,7 @@ const Dashboard = () => {
                 }}
               >
                 <Container>
-                  <Typography variant="h6" sx={{ mb: 2 ,mt:4 }}>
+                  <Typography variant="h6" sx={{ mb: 2, mt: 4 }}>
                     Delete An Account
                   </Typography>
                   <TextField
@@ -246,11 +256,11 @@ const Dashboard = () => {
                     sx={{ mb: 2 }}
                     onChange={handleDeleteIpChange}
                   />
-                  
+
                   <Button
                     type="submit"
                     variant="contained"
-                    sx={{ alignSelf: "center", mb:3 }}
+                    sx={{ alignSelf: "center", mb: 3 }}
                   >
                     Delete User
                   </Button>
@@ -258,52 +268,50 @@ const Dashboard = () => {
               </Box>
             </Grid>
           </Grid>
-        </Container>
         {/* Forms End */}
-
 
         {/* Code To Show All Admins Data */}
         <Divider className="mt-5" />
         <Typography variant="h6" className="text-center mt-2">
-  Site Admins
-</Typography>
-<Container maxWidth="xxl">
-
-<Box className="d-flex" p={5}>
-  {admins.length === 0 ? (
-    <Typography variant="body1" className="text-center">
-      No Admin Please Add one Before You Exit Otherwise You Will Loose Access.
-    </Typography>
-  ) : (
-    <List className="d-flex flex-wrap justify-content-center" style={{ maxWidth: '100%' }}>
-      {admins.map((admin) => (
-        <React.Fragment key={admin.id} >
-          <ListItem className="bg-success m-2 rounded-4" style={{ flexBasis: '20%', padding: '8px'}}>
-            <ListItemAvatar>
-              <Avatar alt={admin.username} src={admin.profilePic} />
-            </ListItemAvatar>
-            <ListItemText  primary={admin.username} secondary={admin.email} />
-          </ListItem>
-          {(admins.indexOf(admin) + 1) % 4 === 0 && (
-            <div style={{ flexBasis: '100%', height: '0' }}></div>
-          )}
-        </React.Fragment>
-      ))}
-    </List>
-  )}
-</Box>  
-</Container>
-<BottomNavbar/>
-
-
-
-      
-      
-      
-      
-      
-      
-      
+          Site Admins
+        </Typography>
+        <Container maxWidth="xxl">
+          <Box className="d-flex justify-content-center" p={5}>
+            {admins.length === 0 ? (
+              <Typography variant="body1" className="text-center">
+                No Admin Please Add one Before You Exit Otherwise You Will Loose
+                Access.
+              </Typography>
+            ) : (
+              <List
+                className="d-flex flex-wrap justify-content-center"
+                style={{ maxWidth: "100%" }}
+              >
+                {admins.map((admin) => (
+                  <React.Fragment key={admin.id}>
+                    <ListItem
+                      className="bg-success m-2 rounded-4"
+                      style={{ flexBasis: "20%", padding: "8px" }}
+                    >
+                      <ListItemAvatar>
+                        <Avatar alt={admin.username} src={admin.profilePic} />
+                      </ListItemAvatar>
+                      <ListItemText
+                        primary={admin.username}
+                        secondary={admin.email}
+                      />
+                    </ListItem>
+                    {(admins.indexOf(admin) + 1) % 4 === 0 && (
+                      <div style={{ flexBasis: "100%", height: "0" }}></div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </List>
+            )}
+          </Box>
+        </Container>
+        </Container>
+        <BottomNavbar />
       </>
     );
   } else {
