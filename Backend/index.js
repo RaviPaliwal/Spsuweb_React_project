@@ -29,5 +29,5 @@ app.use('/api/faculty', require('./Routes/faculty_route'))
 
 
   app.listen(port, () => {
-    //console.log(`Data Base is On Port ${port}`)
+    console.log(`Data Base is On Port ${port}`)
   })
