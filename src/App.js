@@ -10,6 +10,7 @@ import DashCarousel from "./Pages/DashboardPages/DashCarousel";
 import About from "./Pages/Homepages/About";
 import DashFaculty from "./Pages/DashboardPages/DashFaculty";
 import Contact from "./Pages/Homepages/Contact";
+import Curriculum from "./Pages/Homepages/Curriculum";
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/announcements" element={<Announcement/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<AlertState><Contact/></AlertState>}/>  
+        <Route path="/curriculum" element={<AlertState><Curriculum/></AlertState>}/>  
        
         
         

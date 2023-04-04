@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/images',express.static('./Uploads/Images/'))
 app.use('/images',express.static('./Uploads/Carousel/'))
 app.use('/images',express.static('./Uploads/FacultyImages/'))
-
+app.use('/pdfs',express.static('./Uploads/PDFs/'))
 
 app.use('/api/images', require('./Routes/images_route'))
 app.use('/api/announcement',require('./Routes/announcement_route'))
@@ -27,6 +27,7 @@ app.use('/auth',require('./Routes/auth_route'))
 app.use('/api/carousel', require('./Routes/carousel_route'))
 app.use('/api/faculty', require('./Routes/faculty_route'))
 app.use('/api/contactus', require('./Routes/contactroute'))
+app.use('/api/pdf', require('./Routes/pdfroute'))
 
 
   app.listen(port, () => {

@@ -41,7 +41,7 @@ return (
 
 
                 <div className=" cnavitem-div navbar-nav">
-                    <Link className={`cnav-link nav-link ${location.pathname==="/curriculam"?"active":""}`} aria-current="page" to="/"><CalendarTodayIcon/>  Curriculam</Link>
+                    <Link className={`cnav-link nav-link ${location.pathname==="/curriculum"?"active":""}`} aria-current="page" to="/curriculum"><CalendarTodayIcon/>  Curriculam</Link>
                 </div>
 
 

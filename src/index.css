@@ -101,30 +101,6 @@ code {
 
 
 
-/* REC ANN NEWS  on Homepage*/
-.RNFlexContainer{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content:space-between;
-}
- .allann{
-  font-family: 'Asul', sans-serif;
- }
-  .recentanndiv::-webkit-scrollbar{
-    display: none;
-    scroll-behavior: smooth;
-    
-  }
-  .recentanndiv{
-    min-height: 6.50rem;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-
 
   /* No Wrap in ann delete section Dashboard */
   .overflowcut {

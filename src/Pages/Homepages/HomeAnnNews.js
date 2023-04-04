@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Card, CardContent, Typography, Button, Grid } from '@mui/material';
 
 const HomeAnnNews = () => {
   const [recAnn, setRecAnn] = useState([]);
@@ -43,26 +44,28 @@ const HomeAnnNews = () => {
     <div className='container my-5'>
       <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Latest News and Announcements</h2>
 
-      <div className='d-flex justify-content-center'>
-        <div className='recannmaindiv row'>
-          {recAnn.map((element) => (
-            <div key={element._id} className='col-lg-4 col-md-6 col-sm-12 mb-4'>
-              <div className='card recentanndiv' style={{ backgroundColor: '#f1f4f7', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
-                <div className='card-body'>
-                  <h5 className='card-title mb-2 text-truncate' style={{ color: '#1abc9c', textAlign: 'center' }}>
-                    {truncateTitle(element.title)}
-                  </h5>
-                  <p className='card-text text-center'>{element.info}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Grid container spacing={2} justifyContent='center'>
+        {recAnn.map((element) => (
+          <Grid item key={element._id} xs={12} sm={6} md={4}>
+            <Card sx={{ bgcolor: '#f2f2f2', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+              <CardContent>
+                <Typography variant='h5' gutterBottom component='div' sx={{ color: '#1abc9c', textAlign: 'center' }}>
+                  {truncateTitle(element.title)}
+                </Typography>
+                <Typography variant='body2' color='text.secondary' sx={{ textAlign: 'center' }}>
+                  {element.info}
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
 
       <div className='d-flex justify-content-center'>
-        <Link to='/all-announcements'>
-          <button className='btn btn-primary mt-3'>Read More</button>
+        <Link to='/announcements'>
+          <Button variant='contained' color='primary' sx={{ mt: 3 }}>
+            Read More
+          </Button>
         </Link>
       </div>
     </div>

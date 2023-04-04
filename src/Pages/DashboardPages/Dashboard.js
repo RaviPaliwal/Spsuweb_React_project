@@ -3,6 +3,7 @@ import AccessDenied from "./AccessDenied";
 import AlertContext from "../../Contexts/Alert/alertContext";
 import BottomNavbar from "../Homepages/BottomNavbar";
 import ContactRequests from "./ContactRequests";
+import UploadPdf from "./UploadPdf";
 import {
   AppBar,
   Box,
@@ -137,6 +138,7 @@ const Dashboard = () => {
         </AppBar>
 
         <ContactRequests />
+        <UploadPdf update={update}/>
 
         <div className="mt-5 text-center">
           <h2>Admin Handling</h2>

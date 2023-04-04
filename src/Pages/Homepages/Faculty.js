@@ -94,7 +94,7 @@ const FacultyPage = () => {
                           alt={facultyMember.name+" Image"}
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" class="text-center" component="div">
+                          <Typography gutterBottom variant="h5" className="text-center" component="div">
                             {facultyMember.name}
                           </Typography>
                           <Typography
@@ -111,7 +111,7 @@ const FacultyPage = () => {
                                   <Link
                                     href={facultyMember.sociallinks[0].instagram}
                                     target="_blank"
-                                    key={5}
+                                    key={facultyMember.sociallinks[0].instagram+Date.now()}
                                     color="inherit"
                                   >
                                     <IconButton>
@@ -122,7 +122,7 @@ const FacultyPage = () => {
                                   <Link
                                     href={facultyMember.sociallinks[0].vidvan}
                                     target="_blank"
-                                    key={5}
+                                    key={facultyMember.sociallinks[0].vidvan+Date.now()}
                                     color="inherit"
                                   >
                                     <IconButton>
