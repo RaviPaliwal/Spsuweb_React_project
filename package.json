@@ -1,5 +1,5 @@
 {
-  "name": "spsuweb RAvi",
+  "name": "spsuweb",
   "version": "0.1.0",
   "main": "backend/index.js",
   "private": true,
