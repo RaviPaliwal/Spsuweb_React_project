@@ -1,4 +1,3 @@
-//url in serve image to be changed while uploading to serve
 const fs = require("fs");
 const fetchuser = require("../middleware/fetchadmin");
 const express = require("express");
