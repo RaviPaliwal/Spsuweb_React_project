@@ -111,7 +111,7 @@ Login
            name="password"
            label="Password"
            type="password"
-           autoComplete="current-password"
+           autoComplete="password"
            onChange={handlePasswordChange}
          />
 <Button
