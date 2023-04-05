@@ -69,7 +69,7 @@ function App() {
         <>
         <AlertState>
         <Notification/>
-        <Login/>
+        <Login />
         </AlertState>
         </>
         }/>

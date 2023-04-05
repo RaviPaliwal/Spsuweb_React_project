@@ -152,22 +152,19 @@ const DashFaculty = () => {
             onSubmit={handleFormSubmit}
           >
             <Box
+              maxWidth="lg"
               sx={{
-                backgroundColor: "#E8F0FE",
                 mt: 5,
                 mx: "auto",
                 px: 3,
                 py: 2,
-                border: "1px solid #ccc",
                 borderRadius: 4,
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                width: 350,
-                height: 500,
+                width: "auto",
               }}
             >
               <Grid container spacing={2}>
@@ -243,23 +240,19 @@ const DashFaculty = () => {
             onSubmit={handleFormSubmit}
           >
             <Box
+              maxWidth="lg"
               sx={{
-                backgroundColor: "#E8F0FE",
                 mt: 5,
                 mx: "auto",
-                px: 1,
+                px: 3,
                 py: 2,
-                mb: 5,
-                border: "1px solid #ccc",
                 borderRadius: 4,
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
-                width: 350,
-                height: 500,
+                width: "auto",
               }}
             >
               <Typography

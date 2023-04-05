@@ -65,7 +65,7 @@ const DeleteAnnouncement = ({Ann,setAnn}) => {
         <Notification/>
         <Loader open={loaderprop}/>
           <div className="mt-5 text-center">
-            <h2>All Announcements</h2>
+            <h3>All Announcements</h3>
             <p>Here are the latest contact requests from your website visitors:</p>
           </div>
           <div className="container mt-5">

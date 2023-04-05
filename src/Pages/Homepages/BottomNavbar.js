@@ -4,7 +4,7 @@ import { Email, Phone, Facebook, Instagram, LinkedIn, WhatsApp, YouTube } from '
 
 const BottomNavbar = () => {
   return (
-    <section id="ContactUs" className="mainbottomnavbardiv" >
+    <section id="ContactUs" className="mainbottomnavbardiv shadow-sm" >
       <div className="mt-5 position-sticky">
         <div className="container-fluid">
           <div className="row">
@@ -44,7 +44,7 @@ const BottomNavbar = () => {
                   </li>
                   <li className="">
                     <Phone className="icon" />
-                    <span>+91 02957-226095</span>
+                    <span>02957-226095</span>
                   </li>
                 </ul>
               </div>

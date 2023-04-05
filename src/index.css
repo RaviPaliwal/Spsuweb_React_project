@@ -95,7 +95,8 @@ code {
  }
  
  .mainbottomnavbardiv{
-  background-color: rgba(215, 214, 223, 0.919);
+  border-top: 1px solid rgba(0, 0, 0, .3);
+  /* background-color: rgba(215, 214, 223, 0.919); */
   padding-top: .1rem;
  }
 

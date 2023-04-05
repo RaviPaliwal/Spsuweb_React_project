@@ -7,10 +7,10 @@ const uploadcarouselslide = require("../MulterStorage/UploadCarouselSlide");
 const path = require("path");
 const Carousel = require("../models/Carousel");
 
-router.post("/addslide", fetchuser, (req, res) => {
+router.post("/addslide", fetchuser, async (req, res) => {
   uploadcarouselslide(req, res, async (err) => {
     if (err) {
-      res.json({ success: "Something Went Wrong", err });
+      res.json({ responce: "Something Went Wron 2g", err });
     } else {
       const ext = path.extname(req.file.originalname);
       const slide = new Carousel({
@@ -28,8 +28,16 @@ router.post("/addslide", fetchuser, (req, res) => {
         .then(() => {
           res.json({ responce: "Successfully Uploaded Carousel Slide" });
         })
-        .catch((err) => {
-          res.json({ responce: "Something Went Wrong", err });
+        .catch(async (err) => {
+          const d = await Carousel.findOne({ title: req.body.title });
+          if (d) {
+            res.json({
+              responce: "Duplicate Slide Please Try With Different Title",
+              err,
+            });
+            return;
+          }
+          res.status(500).json({ responce: "Internal Server Error", err });
         });
     }
   });
@@ -37,7 +45,7 @@ router.post("/addslide", fetchuser, (req, res) => {
 router.post("/deleteslidebytitle", fetchuser, async (req, res) => {
   const item = await Carousel.findOne({ title: req.body.title });
   if (item) {
-    const path = `./Uploads/Images/${req.body.title + item.image.extention}`;
+    const path = `./Uploads/Carousel/${req.body.title + item.image.extention}`;
     fs.unlink(path, async (err) => {
       if (err) {
         console.error(err);

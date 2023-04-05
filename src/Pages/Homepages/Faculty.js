@@ -87,7 +87,7 @@ const FacultyPage = () => {
                         <CardMedia
                           component="img"
                           height="350"
-                        
+                          class=" align-content-center w-100"
                           image={
                             "http://localhost:5000" + facultyMember.image.path
                           }

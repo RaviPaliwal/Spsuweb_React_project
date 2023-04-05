@@ -47,7 +47,7 @@ const HomeAnnNews = () => {
       <Grid container spacing={2} justifyContent='center'>
         {recAnn.map((element) => (
           <Grid item key={element._id} xs={12} sm={6} md={4}>
-            <Card sx={{ bgcolor: '#f2f2f2', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+            <Card sx={{ bgcolor: '', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)' }}>
               <CardContent>
                 <Typography variant='h5' gutterBottom component='div' sx={{ color: '#1abc9c', textAlign: 'center' }}>
                   {truncateTitle(element.title)}

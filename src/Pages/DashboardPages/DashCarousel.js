@@ -18,6 +18,7 @@ const useStyles = createTheme((theme) => ({
 }));
 
 const DashCarousel = () => {
+  const [load,setload]= useState(false)
   const [slideselected, setslideselected] = useState([]);
   const [refresh, setrefresh] = useState(null);
   const [images, setImages] = useState([]);
@@ -29,7 +30,6 @@ const DashCarousel = () => {
     info: "",
     image: null,
   });
-  const [loaderprop, setloaderprop] = useState(false);
 
   function handleImageSelect(e) {
     const { value, checked } = e.target;
@@ -62,7 +62,7 @@ const DashCarousel = () => {
     bodyContent.append("title", formData.title);
     bodyContent.append("info", formData.info);
     bodyContent.append("image", formData.image);
-
+    setload(true);
     let response = await fetch("http://localhost:5000/api/carousel/addslide", {
       method: "POST",
       body: bodyContent,
@@ -70,6 +70,7 @@ const DashCarousel = () => {
     });
     let data = await response.json();
     //console.log(data);
+    setload(false);
     update(data.responce);
     setrefresh(Date.now());
   };
@@ -93,17 +94,17 @@ const DashCarousel = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    setloaderprop(true);
-    slideselected.map(async (dtitle) => {
+    setload(true);
+    if(slideselected[0]===null){//only one slide is there
       let headersList = {
         Accept: "*/*",
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem("auth-token"),
       };
       let bodycontent = JSON.stringify({
-        title: dtitle,
+        title: slideselected,
       });
-      setloaderprop(true);
+      
       let response = await fetch(
         "http://localhost:5000/api/carousel/deleteslidebytitle",
         {
@@ -114,12 +115,36 @@ const DashCarousel = () => {
       );
       let data = await response.json();
       setrefresh(Date.now());
-      setloaderprop(false);
+      setload(false);
+      setslideselected([]);
+      update(data.responce);
+      }
+    else{
+    slideselected.map(async (dtitle) => {
+      let headersList = {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("auth-token"),
+      };
+      let bodycontent = JSON.stringify({
+        title: dtitle,
+      });
+      
+      let response = await fetch(
+        "http://localhost:5000/api/carousel/deleteslidebytitle",
+        {
+          method: "POST",
+          headers: headersList,
+          body: bodycontent,
+        }
+      );
+      let data = await response.json();
+      setrefresh(Date.now());
+      setload(false);
       update(data.responce);
       let slidearr = slideselected;
       setslideselected(slidearr.pop(dtitle));
-    });
-    setloaderprop(false);
+    }); }
   };
 
   useEffect(() => {
@@ -133,6 +158,7 @@ const DashCarousel = () => {
     return (
       <>
         <DashNavbar/>
+        <Loader open={load}/>
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6">
@@ -140,7 +166,6 @@ const DashCarousel = () => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Loader open={loaderprop} />
         
         <div className="row justify-content-center">
           {/* Add Form */}
@@ -149,22 +174,19 @@ const DashCarousel = () => {
             onSubmit={handleFormSubmit}
           >
             <Box
+              maxWidth="lg"
               sx={{
-                backgroundColor: "#E8F0FE",
                 mt: 5,
                 mx: "auto",
                 px: 3,
                 py: 2,
-                border: "1px solid #ccc",
                 borderRadius: 4,
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "center",
-                width: 350,
-                height: 500,
+                width: "auto",
               }}
             >
               <Grid container spacing={2}>
@@ -218,7 +240,7 @@ const DashCarousel = () => {
                 color="primary"
                 type="submit"
                 className={`${classes.submitButton}`}
-                sx={{ marginTop: "9rem" }}
+                sx={{ marginTop: "1.5rem" }}
               >
                 Add Slide
               </Button>
@@ -231,23 +253,19 @@ const DashCarousel = () => {
             onSubmit={handleFormSubmit}
           >
             <Box
+              maxWidth="lg"
               sx={{
-                backgroundColor: "#E8F0FE",
                 mt: 5,
                 mx: "auto",
-                px: 1,
+                px: 3,
                 py: 2,
-                mb: 5,
-                border: "1px solid #ccc",
                 borderRadius: 4,
-                boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 textAlign: "center",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
-                width: 350,
-                height: 500,
+                width: "auto",
               }}
             >
               <Typography
