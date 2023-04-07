@@ -11,7 +11,7 @@ import About from "./Pages/Homepages/About";
 import DashFaculty from "./Pages/DashboardPages/DashFaculty";
 import Contact from "./Pages/Homepages/Contact";
 import Curriculum from "./Pages/Homepages/Curriculum";
-
+import DashIndustryColab from "./Pages/DashboardPages/DashIndustryColab"
 
 
 function App() {
@@ -52,6 +52,15 @@ function App() {
         <AlertState>
         <Notification/> 
         <DashCarousel/>  
+        </AlertState>
+        </>
+        }/>
+
+<Route path="/admin/dashboard/industrycolab" element={
+        <>
+        <AlertState>
+        <Notification/>
+        <DashIndustryColab/>
         </AlertState>
         </>
         }/>

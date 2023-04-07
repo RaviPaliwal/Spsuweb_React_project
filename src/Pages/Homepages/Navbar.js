@@ -49,8 +49,8 @@ return (
                     <Link className={`cnav-link nav-link ${location.pathname==="/contact"?"active":""}`} aria-current="page" to="/contact"><CallIcon/>  Contact us</Link>
                 </div>
 
-                <div className="cnavitem-div navbar-nav">
-                  <Link className="cnav-link nav-link btn-transperent" to="/admin/login" role="button"><AdminPanelSettingsIcon/>Login</Link>
+                <div className="cnavitem-div navbar-nav ms-auto">
+                  <Link className=" cnav-link nav-link btn-transperent" to="/admin/login" role="button"><AdminPanelSettingsIcon className='text-primary' />Login</Link>
                 </div>
             </div>
         </div>

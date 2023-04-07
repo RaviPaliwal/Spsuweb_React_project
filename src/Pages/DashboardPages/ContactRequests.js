@@ -34,8 +34,8 @@ const ContactRequests = () => {
   const classes = useStyles;
   const ac = useContext(AlertContext);
   const {update} = ac;
-  const [requests,setRequests] = useState([])
-  const [load,setload] = useState(false)
+  const [requests,setRequests] = useState([]);
+  const [load,setload] = useState(false);
   
   useEffect(() => {
     async function fetchData() {
@@ -44,7 +44,6 @@ const ContactRequests = () => {
           "Accept": "*/*",
           "Content-Type": "application/json"
         };
-        setload(true);
         const response = await fetch("http://localhost:5000/api/contactus/getrequests", { 
           method: "GET",
           headers: headersList
@@ -60,14 +59,16 @@ const ContactRequests = () => {
             phone: '1234567890',
             message: 'Request message Shows Here.',
           },]);
-          setload(false);
+          
         }
       } catch (error) {
         update("Contact Req Not Fetched")
       }
     }
+    setload(true);
     fetchData();
-  }, [update,requests]);
+    setload(false);
+  }, [update]);
   const handleDelete = async (id) => {
     try {
       const headersList = {

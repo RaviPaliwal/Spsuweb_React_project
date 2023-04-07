@@ -66,7 +66,7 @@ const DeleteAnnouncement = ({Ann,setAnn}) => {
         <Loader open={loaderprop}/>
           <div className="mt-5 text-center">
             <h3>All Announcements</h3>
-            <p>Here are the latest contact requests from your website visitors:</p>
+            <p>Here You can manage all Announcenents:</p>
           </div>
           <div className="container mt-5">
             <div className="row justify-content-center">
@@ -74,7 +74,7 @@ const DeleteAnnouncement = ({Ann,setAnn}) => {
                 <div className="col-12 col-md-6 col-lg-4 mb-4" key={request._id}>
                   <Card className={classes.card + " shadow-lg"}>
                     <CardContent>
-                      <Typography className={classes.name}>{request.title}</Typography>
+                      <Typography style={{fontWeight:"bold",color:"#54D787",fontSize:"1.1rem"}} className={classes.name}>{request.title}</Typography>
                       <Typography className={classes.info}>{request.info}</Typography>
                       <IconButton color="error" aria-label="delete" onClick={() => handleDelete(request.title)}>
                         <Delete />

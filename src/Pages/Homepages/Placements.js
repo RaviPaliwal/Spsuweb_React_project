@@ -9,10 +9,24 @@ const Placements = () => {
   const [isFocused, setIsFocused] = useState(false);
   const intervalRef = useRef();
 
-  const handleFocus = (e) => {
-    e.preventDefault();
-    setIsFocused(true);
+  const handleIntersection = (entries) => {
+    const [entry] = entries;
+    setIsFocused(entry.isIntersecting);
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      root: null,
+      threshold: 0.5,
+    });
+
+    observer.observe(document.querySelector('.placement-section'));
+
+    return () => {
+      observer.disconnect();
+      clearInterval(intervalRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     if (isFocused) {
@@ -29,15 +43,17 @@ const Placements = () => {
         if (l < 20) {
           setL(l + 1);
         }
-      }, 12);
+      }, 25);
     }
     return () => clearInterval(intervalRef.current);
   }, [i,j,k,l,isFocused]);
 
+
+
   return (
     <>
-    <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Placements Records</h2>
-    <div className="placement-section"on tabIndex="0">
+    <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Advantage CSE at Spsu</h2>
+    <div className="placement-section container"on tabIndex="0">
       <div className="placement-item">
         <div className="placement-icon">
           <FaUser className='text-primary h1'/>

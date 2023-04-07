@@ -28,6 +28,8 @@ app.use('/api/carousel', require('./Routes/carousel_route'))
 app.use('/api/faculty', require('./Routes/faculty_route'))
 app.use('/api/contactus', require('./Routes/contactroute'))
 app.use('/api/pdf', require('./Routes/pdfroute'))
+app.use('/api', require('./Routes/industrycolab'))
+
 
 
   app.listen(port, () => {
