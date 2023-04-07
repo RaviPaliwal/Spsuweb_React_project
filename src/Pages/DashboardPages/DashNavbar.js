@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 // import "../../Pages/Homepages/NB.css" no need as same classes as NB in homepage
-import logo from "../../Pages/Homepages/spsu.png"
+import logo from "../../Assets/spsu_logo_2.png"
 import GrainIcon from '@mui/icons-material/Grain';
 import HomeIcon from '@mui/icons-material/Home';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';

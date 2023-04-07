@@ -10,8 +10,8 @@
 body {
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  /* background-color: rgb(242,237,231); */
-  /* background-color: #172D13; */
+  background-color: rgba(92, 116, 161, 0.011) !important;
+  /* background-color: #172D13 !important; */
   font-family: -apple-system, BlinkMacSyste'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -128,7 +128,7 @@ code {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color:#f1f4f7;
+  /* background-color:#f1f4f7; */
 }
 
 .placement-item {

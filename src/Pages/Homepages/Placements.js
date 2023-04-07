@@ -29,7 +29,7 @@ const Placements = () => {
         if (l < 20) {
           setL(l + 1);
         }
-      }, 25);
+      }, 12);
     }
     return () => clearInterval(intervalRef.current);
   }, [i,j,k,l,isFocused]);
@@ -37,7 +37,7 @@ const Placements = () => {
   return (
     <>
     <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Placements Records</h2>
-    <div className="placement-section" onWheelCapture={handleFocus} tabIndex="0">
+    <div className="placement-section"on tabIndex="0">
       <div className="placement-item">
         <div className="placement-icon">
           <FaUser className='text-primary h1'/>

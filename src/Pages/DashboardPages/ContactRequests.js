@@ -5,10 +5,9 @@ import  AlertContext from "../../Contexts/Alert/alertContext"
 import Notification from '../Notification';
 import {IconButton } from '@mui/material';
 import Delete from '@mui/icons-material/Delete';
-
-
+import Loader from "../Homepages/Loader"
 const useStyles = createTheme({
-  card: {
+  card:{
     width: '90vw',
     height: 'auto',
     display: 'flex',
@@ -35,13 +34,8 @@ const ContactRequests = () => {
   const classes = useStyles;
   const ac = useContext(AlertContext);
   const {update} = ac;
-  const [requests,setRequests] = useState([{
-    _id: '1432',
-    name: 'sendername',
-    email: 'email123@example.com',
-    phone: '1234567890',
-    message: 'Request message Shown Here.',
-  },])
+  const [requests,setRequests] = useState([])
+  const [load,setload] = useState(false)
   
   useEffect(() => {
     async function fetchData() {
@@ -50,6 +44,7 @@ const ContactRequests = () => {
           "Accept": "*/*",
           "Content-Type": "application/json"
         };
+        setload(true);
         const response = await fetch("http://localhost:5000/api/contactus/getrequests", { 
           method: "GET",
           headers: headersList
@@ -57,13 +52,22 @@ const ContactRequests = () => {
         
         const data = await response.json();
         setRequests(data);
-        console.log(data);
+        if(requests[0]===undefined){
+          setRequests([{
+            _id: '1432',
+            name: 'Sendername',
+            email: 'Email123@example.com',
+            phone: '1234567890',
+            message: 'Request message Shows Here.',
+          },]);
+          setload(false);
+        }
       } catch (error) {
-        update("Contact Req Not Fetched Err")
+        update("Contact Req Not Fetched")
       }
     }
     fetchData();
-  }, [update]);
+  }, [update,requests]);
   const handleDelete = async (id) => {
     try {
       const headersList = {
@@ -86,6 +90,7 @@ const ContactRequests = () => {
   };
   return (
     <>
+    <Loader open={load} />
     <Notification/>
       <div className="mt-5 text-center">
         <h2>Contact Requests</h2>
@@ -97,10 +102,10 @@ const ContactRequests = () => {
             <div className="col-12 col-md-6 col-lg-4 mb-4" key={request._id}>
               <Card className={classes.card + " shadow-lg"}>
                 <CardContent>
-                  <Typography className={classes.name}>{request.name}</Typography>
-                  <Typography className={classes.info}>Email: {request.email}</Typography>
-                  <Typography className={classes.info}>Phone: {request.phone}</Typography>
-                  <Typography className={classes.info}>Message: {request.message}</Typography>
+                  <Typography sx={classes.name}>{request.name}</Typography>
+                  <Typography sx={classes.info}>Email: {request.email}</Typography>
+                  <Typography sx={classes.info}>Phone: {request.phone}</Typography>
+                  <Typography sx={classes.info}>Message: {request.message}</Typography>
                   <IconButton color="error" aria-label="delete" onClick={() => handleDelete(request._id)}>
                     <Delete />
                   </IconButton>

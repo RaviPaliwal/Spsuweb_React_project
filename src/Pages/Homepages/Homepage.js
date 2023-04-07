@@ -20,7 +20,6 @@ const Homepage = () => {
     <IndustryColab/>
     <hr/>
     <HomeAnnNews/>
-    <hr/>
     <Placements/>
     <hr/>
     <Faculty/>

@@ -42,11 +42,11 @@ const Dashboard = () => {
         const data = await response.json();
         setAdmins(data);
       } catch (error) {
-        console.error(error);
+        update(error)
       }
     }
     fetchData();
-  }, [call]);
+  }, [call,update]);
 
   const [deleteData, setDeleteData] = useState({
     email: "",
@@ -137,7 +137,7 @@ const Dashboard = () => {
           </Toolbar>
         </AppBar>
 
-        <ContactRequests />
+        <ContactRequests/>
         <UploadPdf update={update}/>
 
         <div className="mt-5 text-center">
@@ -290,7 +290,7 @@ const Dashboard = () => {
                 style={{ maxWidth: "100%" }}
               >
                 {admins.map((admin) => (
-                  <React.Fragment key={admin.id}>
+                  <React.Fragment key={admin._id}>
                     <ListItem
                       className="bg-success m-2 rounded-4"
                       style={{ flexBasis: "20%", padding: "8px" }}
