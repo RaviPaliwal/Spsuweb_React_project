@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaUser, FaMapMarkerAlt, FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 
 const Placements = () => {
-  const [i, setI] = useState(1);
-  const [j, setJ] = useState(1);
-  const [k, setK] = useState(1);
-  const [l, setL] = useState(1);
+  const [i, setI] = useState(2);
+  const [j, setJ] = useState(2);
+  const [k, setK] = useState(2);
+  const [l, setL] = useState(2);
   const [isFocused, setIsFocused] = useState(false);
   const intervalRef = useRef();
 
@@ -53,7 +53,7 @@ const Placements = () => {
   return (
     <>
     <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Advantage CSE at Spsu</h2>
-    <div className="placement-section container"on tabIndex="0">
+    <div className="placement-section container" tabIndex="0">
       <div className="placement-item">
         <div className="placement-icon">
           <FaUser className='text-primary h1'/>

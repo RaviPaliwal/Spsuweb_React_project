@@ -9,6 +9,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import CallIcon from '@mui/icons-material/Call';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import GrainIcon from '@mui/icons-material/Grain';
+import { Person } from '@mui/icons-material';
 
 const Navbar = () => {
 const location = useLocation();
@@ -31,9 +32,6 @@ return (
                     <Link className={`cnav-link nav-link ${location.pathname==="/"?"active":""}`}  aria-current="page" to="/"><HomeIcon/>  Home</Link>
                 </div>
 
-                <div  className="cnavitem-div navbar-nav">
-                    <Link className={`cnav-link nav-link ${location.pathname==="/about"?"active":""}`} aria-current="page" to="/about"><InfoIcon/>  About</Link>
-                </div>
 
                 <div  className="cnavitem-div navbar-nav">
                     <Link className={`cnav-link nav-link ${location.pathname==="/announcements"?"active":""}`} aria-current="page" to="/announcements"><NotificationsActiveIcon/>  Announcements</Link>
@@ -48,6 +46,42 @@ return (
                 <div className="cnavitem-div navbar-nav">
                     <Link className={`cnav-link nav-link ${location.pathname==="/contact"?"active":""}`} aria-current="page" to="/contact"><CallIcon/>  Contact us</Link>
                 </div>
+                
+                <div className="cnavitem-div navbar-nav dropdown">
+                <button
+                  className="cnav-link nav-link dropdown-toggle btn btn-transparent"
+                  id="navbarDropdown"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  More
+                </button>
+                <div
+                  className="dropdown-menu mt-5"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <div className="cnavitem-div navbar-nav">
+                    <Link
+                      className={`cnav-link nav-link ${
+                        location.pathname === "/faculty"
+                          ? "active"
+                          : ""
+                      }`}
+                      aria-current="page"
+                      to="/faculty"
+                    >
+                      <Person />
+                      Faculty
+                    </Link>
+                  </div>
+                <div  className="cnavitem-div navbar-nav">
+                    <Link className={`cnav-link nav-link ${location.pathname==="/about"?"active":""}`} aria-current="page" to="/about"><InfoIcon/>  About</Link>
+                </div>
+                </div>
+              </div>
+
+
 
                 <div className="cnavitem-div navbar-nav ms-auto">
                   <Link className=" cnav-link nav-link btn-transperent" to="/admin/login" role="button"><AdminPanelSettingsIcon className='text-primary' />Login</Link>

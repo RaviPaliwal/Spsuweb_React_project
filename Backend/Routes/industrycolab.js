@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const path = require('path')
 const uploadimage = require('../MulterStorage/Upload');
 const IndustryCollaboration = require('../models/IndustryColabsSchema');
@@ -48,19 +49,23 @@ router.get('/industry-colaborations', async (req, res) => {
 // DELETE /api/industry-collaborations
 // Delete Industry Collaboration by title
 router.delete('/industry-colaborations', async (req, res) => {
-    try {
-      const { title } = req.body;
-      const industryCollaboration = await IndustryCollaboration.findOne({ title });
-      if (!industryCollaboration) {
-        return res.status(404).json({ msg: 'Industry collaboration not found' });
-      }
-      await industryCollaboration.remove();
-      res.json({ msg: 'Industry collaboration removed' });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({msg:"Internal Server Error"});
+  try {
+    const { title } = req.body;
+    const industryCollaboration = await IndustryCollaboration.findOne({ title });
+    if (!industryCollaboration) {
+      return res.status(404).json({ msg: 'Industry collaboration not found' });
     }
-  });
+    const imagePath = `./Uploads/${industryCollaboration.image.path}`;
+    fs.unlink(imagePath, (err) => {
+      if (err) console.error(err);
+    });
+    await industryCollaboration.remove();
+    res.json({ msg: 'Industry collaboration removed' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ msg: 'Internal Server Error' });
+  }
+});
   
 
 module.exports = router;

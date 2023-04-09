@@ -12,6 +12,7 @@ import DashFaculty from "./Pages/DashboardPages/DashFaculty";
 import Contact from "./Pages/Homepages/Contact";
 import Curriculum from "./Pages/Homepages/Curriculum";
 import DashIndustryColab from "./Pages/DashboardPages/DashIndustryColab"
+import FacultyPage from "./Pages/Homepages/FacultyPage";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<AlertState><Contact/></AlertState>}/>  
         <Route path="/curriculum" element={<AlertState><Curriculum/></AlertState>}/>  
+        <Route path="/faculty" element={<FacultyPage/>}  />
        
         
         
