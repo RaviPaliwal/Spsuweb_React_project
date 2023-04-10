@@ -22,6 +22,8 @@ router.post("/addfaculty", fetchuser, (req, res) => {
           instagram:req.body.instagram,
           gmail:req.body.gmail,
           vidvan:req.body.vidvan,
+          twitter:req.body.twitter,
+          facebook:req.body.facebook
         },
         image: {
           extention: ext,

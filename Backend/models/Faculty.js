@@ -25,6 +25,8 @@ const Faculty = new Schema({
     instagram:String,
     gmail:String,
     vidvan:String,
+    twitter:String,
+    facebook:String
   }],
 
   image: {

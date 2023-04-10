@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import AnnouncementItem from "./AnnouncementItem"
-import Newsitem from "./NewsItem"
 import BottomNavbar from "./BottomNavbar"
+import AllNews from './AllNews'
 const Announcement = () => {
   const [item,setitem]= useState([])
-  const [news, setNews] = useState([]);
+  
 
   
   useEffect(()=>{
@@ -29,15 +29,6 @@ const Announcement = () => {
     getdata();
   },[setitem])
 
-useEffect(() => {
-    const fetchNews = async () => {
-      const response = await fetch('http://localhost:5000/api/news/getall');
-      const data = await response.json();
-      setNews(data);
-    };
-    fetchNews();
-  }, []);
-
 
 return(<>
 <Navbar/>
@@ -52,20 +43,7 @@ return(<>
 })}
 
 <p style={{backgroundColor:'#1abc9c'}} className="allann container rounded-pill shadow d-flex row justify-content-center  mt-2  btn ">News and Events</p>
-
-<div className="container">
-      <div className="d-flex flex-wrap justify-content-sm-center justify-justify-content-md-evenly">
-        {news.map((item) => (
-          <Newsitem
-            key={item._id}
-            title={item.title}
-            description={item.description}
-            imageUrl={item.image && "http://localhost:5000"+item.image.path}
-            date={item.created_at}
-          />
-        ))}
-      </div>
-    </div>
+<AllNews/>
     <BottomNavbar/>
 
 

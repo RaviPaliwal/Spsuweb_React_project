@@ -43,7 +43,7 @@ const Placements = () => {
         if (l < 20) {
           setL(l + 1);
         }
-      }, 25);
+      }, 1);
     }
     return () => clearInterval(intervalRef.current);
   }, [i,j,k,l,isFocused]);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, Typography, Button, Grid } from '@mui/material';
-
+import Newsitem from "./NewsItem"
 const HomeAnnNews = () => {
   const [recAnn, setRecAnn] = useState([]);
 
@@ -11,7 +11,15 @@ const HomeAnnNews = () => {
     let cYear = currentDate.getFullYear();
     return `${cMonth}-${cYear}`;
   };
-
+  const [news, setNews] = useState([]);
+  useEffect(() => {
+      const fetchNews = async () => {
+        const response = await fetch('http://localhost:5000/api/news/getall');
+        const data = await response.json();
+        setNews(data);
+      };
+      fetchNews();
+    }, []);
   useEffect(() => {
     const getRecAnn = async () => {
       let headersList = {
@@ -60,6 +68,20 @@ const HomeAnnNews = () => {
           </Grid>
         ))}
       </Grid>
+      <div className="d-flex flex-wrap justify-content-sm-center justify-justify-content-md-evenly">
+  {news.slice(0, 6).map((item) => (
+    <Newsitem
+      key={item._id}
+      title={item.title}
+      description={item.description}
+      imageUrl={item.image && "http://localhost:5000"+item.image.path}
+      date={item.created_at}
+    />
+  ))}
+</div>
+
+
+      
 
 
 

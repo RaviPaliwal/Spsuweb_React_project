@@ -120,7 +120,7 @@ const FacultyPage = () => {
                                     </IconButton>
                                   </Link>
                                   <Link
-                                    href={facultyMember.sociallinks[0].vidvan}
+                                    href={facultyMember.sociallinks[0].facebook}
                                     target="_blank"
                                     key={facultyMember.sociallinks[0].vidvan+Date.now()}
                                     color="inherit"

@@ -28,6 +28,12 @@ const DashFaculty = () => {
     name: "",
     post: "",
     about:"",
+    linkedin:"",
+    facebook:"",
+    twitter:"",
+    instagram:"",
+    vidvan:"",
+    email:"",
     image: null,
   });
   const [loaderprop, setloaderprop] = useState(false);
@@ -65,6 +71,11 @@ const DashFaculty = () => {
     bodyContent.append("about",formData.about);
     bodyContent.append("title",formData.name);
     bodyContent.append("image", formData.image);
+    bodyContent.append("instagram", formData.instagram);
+    bodyContent.append("facebook", formData.facebook);
+    bodyContent.append("linkedin", formData.linkedin);
+    bodyContent.append("gmail", formData.email);
+    bodyContent.append("twitter", formData.twitter);
 
     let response = await fetch("http://localhost:5000/api/faculty/addfaculty", {
       method: "POST",
@@ -202,6 +213,52 @@ const DashFaculty = () => {
                     onChange={handleInputChange}
                     className="mb-2 w-75"
                   />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    label="linkedin"
+                    name="linkedin"
+                    value={formData.linkedin}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Facebook"
+                    name="facebook"
+                    value={formData.facebook}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                  <Grid item xs={12}>
+                  <TextField
+                    label="Vidvan"
+                    name="vidvan"
+                    value={formData.vidvan}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                  <Grid item xs={12}>
+                  <TextField
+                    label="Twitter"
+                    name="twitter"
+                    value={formData.twitter}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                </Grid>
+                </Grid>
                 </Grid>
                 <Grid item xs={12}>
                   <input
