@@ -4,6 +4,7 @@ import { TextField, Button, Grid, Box, Typography, AppBar, Toolbar } from "@mui/
 import { createTheme } from "@mui/material/styles";
 import Loader from "../Homepages/Loader";
 import DashNavbar from "./DashNavbar";
+import AccessDenied from "./AccessDenied";
 
 const useStyles = createTheme((theme) => ({
   root: {
@@ -314,6 +315,11 @@ const DashCarousel = () => {
         </div>
       </>
     );
+  }
+  else{
+    return(
+    <AccessDenied/>
+    )
   }
 };
 

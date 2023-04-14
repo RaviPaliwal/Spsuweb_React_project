@@ -9,6 +9,7 @@ Box,
 import AlertContext from "../Contexts/Alert/alertContext";
 import Loader from '../Pages/Homepages/Loader'
 import { useNavigate } from "react-router-dom";
+import auth from "../Assets/auth.svg"
 
 
 
@@ -77,7 +78,7 @@ headers: headersList,
 return (
 <>
 <Loader open={load} />
-<Container maxWidth="xs" sx={{ marginTop: "4rem" }}>
+<Container maxWidth="xs" sx={{ marginTop: "1.5rem", marginBottom:"2rem" }}>
 <Box
 sx={{
 display: "flex",
@@ -89,7 +90,12 @@ borderRadius: 1,
 boxShadow: 8,
 }}
 >
-<Typography variant="h5" gutterBottom>
+<div className="container row">
+  <img src={auth} alt="auth svg" />
+</div>
+
+<div className="containe text-center mt-2">
+<Typography variant="h6" gutterBottom>
 Login
 </Typography>
 <Box autoComplete="on" component="form" onSubmit={handleSubmit}>
@@ -123,7 +129,7 @@ sx={{ mt: 3, mb: 2 }}
 >
 Sign In
 </Button>
-</Box>
+</Box></div>
 </Box>
 </Container>
 </>

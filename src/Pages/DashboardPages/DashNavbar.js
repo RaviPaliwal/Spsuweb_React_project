@@ -23,7 +23,8 @@ const DashNavbar = () => {
       <>
         <nav className="p-0 shadow-lg navbar navbar-expand-sm navbar-light">
           <div className="cnavbar-div container-fluid ">
-            <Link className="navbar-brand " to="/">
+            <Link className="navbar-brand " onClick={handleLogout}
+                  role="button">
               <img className="cheader-logo" src={logo} alt="logo" />
               <div className="ctop-container">
                 <p className="cp d-block fw-bold">Department of CSE</p>

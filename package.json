@@ -24,7 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "kardo": "concurrently --kill-others \"npm run start\" \"npm run backend\"",
+    "kardo": "concurrently --kill-others  \"npm run start\" \"npm run backend\"",
     "backend": "nodemon",
     "start": "react-scripts start",
     "build": "react-scripts build",

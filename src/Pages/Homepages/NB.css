@@ -39,7 +39,14 @@
 .navbar-toggler:focus{
     box-shadow: 0 0 0 0 !important;
 }
+
 .cnav-link{
     color: #110e0eb2 !important;
     font-size: .9rem    !important;
+}
+.cnavdropbtn{
+    white-space: pre-wrap !important ;
+    outline: 0;
+    border: none;
+    background-color: inherit;
 }

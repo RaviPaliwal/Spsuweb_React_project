@@ -34,6 +34,6 @@ app.use('/api/news', require('./Routes/newsroute'))
 
 
 
-  app.listen(port, () => {
+  app.listen(port,'0.0.0.0', () => {
     console.log(`Data Base is On Port ${port}`)
   })

@@ -12,7 +12,6 @@ import DashFaculty from "./Pages/DashboardPages/DashFaculty";
 import Contact from "./Pages/Homepages/Contact";
 import DashIndustryColab from "./Pages/DashboardPages/DashIndustryColab"
 import FacultyPage from "./Pages/Homepages/FacultyPage";
-import NewsDashboard from "./Pages/DashboardPages/NewsDashboard";
 
 function App() {
   const router =createBrowserRouter(
@@ -43,7 +42,6 @@ function App() {
         <AlertState>
         <Notification/> 
         <DashAnnouncement/>
-        <NewsDashboard></NewsDashboard>  
         </AlertState>
         </>
         }/>

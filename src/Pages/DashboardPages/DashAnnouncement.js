@@ -6,7 +6,9 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import DeleteAnnouncement from "./DeleteAnnouncement";
+import NewsManagement from "./NewsManagement";
 import { Box, Button, Container, TextField } from "@mui/material";
+import AccessDenied from "./AccessDenied";
 
 const DashAnnouncement = () => {
   const [loaderprop, setloaderprop] = useState(false);
@@ -131,8 +133,14 @@ const DashAnnouncement = () => {
         
 
         <DeleteAnnouncement Ann={Ann} setAnn={setAnn} />
+        <NewsManagement/>
       </>
     );
+  }
+  else{
+    return(
+      <AccessDenied/>
+    )
   }
 };
 export default DashAnnouncement;

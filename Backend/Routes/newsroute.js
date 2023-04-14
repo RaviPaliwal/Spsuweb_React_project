@@ -35,43 +35,26 @@ router.get('/getall', async (req, res) => {
   }
 });
 
-// READ a single news article
-router.get('/:id', getNews, (req, res) => {
-  res.json(res.news);
-});
-
-// UPDATE a news article
-router.patch('/:id', getNews, uploadnewsimage, async (req, res) => {
-  if (req.body.title != null) {
-    res.news.title = req.body.title;
-  }
-  if (req.body.description != null) {
-    res.news.description = req.body.description;
-  }
-  if (req.file != null) {
-    res.news.image = {
-      path: req.file.path,
-      contentType: req.file.mimetype
-    };
-  }
-  try {
-    const updatedNews = await res.news.save();
-    res.json(updatedNews);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
 
 // DELETE a news article
 router.delete('/:id', async (req, res) => {
   const item = await News.findById(req.params.id)
   if(item){
     const path = item.image.path.replace('/images/','./Uploads/NewsImages/');
-    console.log(path);
     try {
-      await fs.promises.unlink(path);
-      await res.news.remove();
-      res.json({ message: 'News article deleted' });
+      fs.unlink(path,async (err)=>{
+        if(err){
+          console.log(err);
+          await News.deleteOne({_id:item._id})
+          res.json({ message: 'News article Deleted but IMAGE Not found' });
+          return;
+        }
+        else{
+          await News.deleteOne({_id:item._id})
+          res.json({ message: 'News article deleted' });
+        }
+      });
+      
     } catch (err) {
       res.status(500).json({ message: err.message });
     }

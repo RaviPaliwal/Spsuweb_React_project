@@ -96,9 +96,9 @@ function UploadPdf({update}) {
                 required
               >
                 <MenuItem value="">Select a File To Upload</MenuItem>
-                <MenuItem value="AcademicCalander">AcademicCalander</MenuItem>
+                <MenuItem value="AcademicCalendar">AcademicCalendar</MenuItem>
                 <MenuItem value="TimeTable">TimeTable</MenuItem>
-                <MenuItem value="Other">Other</MenuItem>
+                <MenuItem hidden value="Other">Other</MenuItem>
               </Select>
             </Grid>
           </Grid>

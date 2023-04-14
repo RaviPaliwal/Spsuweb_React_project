@@ -4,7 +4,7 @@ import { TextField, Button, Grid, Box, Typography,AppBar,Toolbar } from "@mui/ma
 import { createTheme } from "@mui/material/styles";
 import Loader from "../Homepages/Loader";
 import DashNavbar from "./DashNavbar";
-
+import AccessDenied from "./AccessDenied";
 const useStyles = createTheme((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -366,6 +366,11 @@ const DashFaculty = () => {
         </div>
       </>
     );
+  }
+  else{
+    return(
+      <AccessDenied/>
+    )
   }
 };
 

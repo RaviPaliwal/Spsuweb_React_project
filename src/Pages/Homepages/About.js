@@ -3,9 +3,9 @@ import { Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Navbar from "./Navbar";
 import BottomNavbar from "./BottomNavbar"
-
+import image from "../../Assets/softwareengineer.svg"
 const Jumbotron = styled("div")({
-  backgroundColor: "#f7f7f7",
+  backgroundColor: "inherit",
   padding: "2rem",
   marginBottom: "2rem",
 });
@@ -14,11 +14,13 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <Container className="mt-3" maxWidth="md" >
-        <Jumbotron className="rounded-3" style={{ color: "#5f6175" }}> 
+      <Container className="mt-3" maxWidth="lg" >
+        <Jumbotron style={{ color: "#5f6178" }}> 
+        <div className="text-center">
+            <img src={image} alt="Computer" className="w-50" />
+        </div>
           <Typography variant="h5" gutterBottom className="text-success">
             <b><center>About Us</center></b>
-            <hr />
           </Typography>
           <Typography variant="body1" >
             Welcome to the Department of Computer Science and Engineering at

@@ -13,6 +13,7 @@ import {
 import DashNavbar from "./DashNavbar";
 import Notification from "../Notification";
 import Loader from "../Homepages/Loader";
+import AccessDenied from "./AccessDenied";
 const DashIndustryColab = () => {
   const [industryCollaborations, setIndustryCollaborations] = useState([]);
   const [title, setTitle] = useState("");
@@ -77,7 +78,7 @@ const DashIndustryColab = () => {
       })
       .catch((error) => console.error(error));
   };
-
+if(localStorage.getItem("loggedin") === "true"){
   return (
     <>
       <Notification />
@@ -180,6 +181,12 @@ const DashIndustryColab = () => {
         </Grid>
       </Container>
     </>
-  );
+  );  
+}
+else{
+  return(
+    <AccessDenied/>
+  )
+}
 };
 export default DashIndustryColab;
