@@ -5,7 +5,6 @@ import logo from "../../Assets/spsu_logo_2.png"
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import CallIcon from '@mui/icons-material/Call';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import GrainIcon from '@mui/icons-material/Grain';
@@ -38,9 +37,9 @@ return (
                 </div>
 
 
-                <div className=" cnavitem-div navbar-nav">
+                {/* <div className=" cnavitem-div navbar-nav">
                     <Link className={`cnav-link nav-link ${location.pathname==="/curriculum"?"active":""}`} aria-current="page" to="/curriculum"><CalendarTodayIcon/>  Curriculam</Link>
-                </div>
+                </div> */}
 
 
                 <div className="cnavitem-div navbar-nav">

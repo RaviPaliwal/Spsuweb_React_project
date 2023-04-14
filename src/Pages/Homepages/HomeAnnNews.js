@@ -53,14 +53,14 @@ const HomeAnnNews = () => {
       <h2 className='text-center mb-4' style={{ color: '#52616b' }}>Latest News and Announcements</h2>
 
       <Grid container spacing={2} justifyContent='center'>
-        {recAnn.map((element) => (
+        {recAnn.slice(0, 6).map((element) => (
           <Grid item key={element._id} xs={12} sm={6} md={4}>
             <Card sx={{ bgcolor: '', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)' }}>
               <CardContent>
-                <Typography variant='h5' gutterBottom component='div' sx={{ color: '#1abc9c', textAlign: 'center' }}>
+                <Typography variant='h6' gutterBottom component='div' sx={{ color: '#1abc9c', textAlign: 'center' }}>
                   {truncateTitle(element.title)}
                 </Typography>
-                <Typography variant='body2' color='text.secondary' sx={{ textAlign: 'center' }}>
+                <Typography variant='body1' color='text.secondary' sx={{ textAlign: 'center' }}>
                   {element.info}
                 </Typography>
               </CardContent>
@@ -68,7 +68,8 @@ const HomeAnnNews = () => {
           </Grid>
         ))}
       </Grid>
-      <div className="d-flex flex-wrap justify-content-sm-center justify-justify-content-md-evenly">
+
+      <div className="container-md d-flex flex-wrap justify-content-center">
   {news.slice(0, 6).map((item) => (
     <Newsitem
       key={item._id}
@@ -88,7 +89,7 @@ const HomeAnnNews = () => {
 
       
 
-      <div className='d-flex justify-content-center'>
+      <div className=' d-flex justify-content-center'>
         <Link to='/announcements'>
           <Button variant='contained' color='primary' sx={{ mt: 3 }}>
             Read More

@@ -96,8 +96,8 @@ function NewsManagement() {
         <div key={news._id}>
           <h3>{news.title}</h3>
           <p>{news.description}</p>
-          {news.image && (
-            <img src={`/api/news/image/${news._id}`} alt={news.title} />
+          {news.image.path && (
+            <img src={`http://localhost:5000/images/${news.image.path}`} alt={news.title} />
           )}
           <button onClick={() => handleDeleteNews(news._id)}>Delete</button>
           <button onClick={() => handleUpdateNews(news._id)}>Update</button>

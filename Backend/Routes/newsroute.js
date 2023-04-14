@@ -3,7 +3,7 @@ const path = require('path')
 const router = express.Router();
 const News = require('../models/News');
 const uploadnewsimage = require('../MulterStorage/Uploadnews');
-
+const fs = require('fs')
 // CREATE a new news article
 router.post('/add', uploadnewsimage, async (req, res) => {
     const img = {
@@ -63,12 +63,20 @@ router.patch('/:id', getNews, uploadnewsimage, async (req, res) => {
 });
 
 // DELETE a news article
-router.delete('/:id', getNews, async (req, res) => {
-  try {
-    await res.news.remove();
-    res.json({ message: 'News article deleted' });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+router.delete('/:id', async (req, res) => {
+  const item = await News.findById(req.params.id)
+  if(item){
+    const path = item.image.path.replace('/images/','./Uploads/NewsImages/');
+    console.log(path);
+    try {
+      await fs.promises.unlink(path);
+      await res.news.remove();
+      res.json({ message: 'News article deleted' });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+    
+
   }
 });
 

@@ -2,9 +2,9 @@ import React from 'react'
 
 const Newsitem = ({ title, description, imageUrl, date }) => {
     return (
-        <div className="my-3" style={{width:'400px'}} >
-            <div className="card">
-                <img src={!imageUrl ?"https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg": imageUrl} className="card-img-top" alt="..." />
+        <div className="my-3 ms-4 " style={{width:'300px'}} >
+            <div className="card rounded-4">
+                <img src={imageUrl} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h5 className="card-title">{title}  </h5>
                     <p className="card-text">{description}</p>

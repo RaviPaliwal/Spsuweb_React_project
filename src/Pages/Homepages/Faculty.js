@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {
+  Button,
   Card,
   CardContent,
   CardMedia,
   Grid,
   IconButton,
-  Link,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { Instagram, YouTube, Facebook, Mail } from "@mui/icons-material";
 
@@ -87,7 +88,7 @@ const FacultyPage = () => {
                         <CardMedia
                           component="img"
                           height="350"
-                          class=" align-content-center w-100"
+                          className=" align-content-center w-100"
                           image={
                             "http://localhost:5000" + facultyMember.image.path
                           }
@@ -111,7 +112,7 @@ const FacultyPage = () => {
                                   <Link
                                     href={facultyMember.sociallinks[0].instagram}
                                     target="_blank"
-                                    key={facultyMember.sociallinks[0].instagram+Date.now()}
+                                    key={Date.now()+facultyMember.name}
                                     color="inherit"
                                   >
                                     <IconButton>
@@ -122,7 +123,7 @@ const FacultyPage = () => {
                                   <Link
                                     href={facultyMember.sociallinks[0].facebook}
                                     target="_blank"
-                                    key={facultyMember.sociallinks[0].vidvan+Date.now()}
+                                    key={facultyMember._id}
                                     color="inherit"
                                   >
                                     <IconButton>
@@ -142,6 +143,13 @@ const FacultyPage = () => {
                 <ChevronRight />
               </IconButton>
             </Grid>
+            <div className=' d-flex justify-content-center'>
+        <Link to='/faculty'>
+          <Button variant='contained' color='primary' sx={{ mt: 3 }}>
+            Read More
+          </Button>
+        </Link>
+      </div>
           </>
         )}
       </Grid>

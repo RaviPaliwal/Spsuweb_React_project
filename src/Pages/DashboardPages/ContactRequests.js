@@ -6,6 +6,7 @@ import Notification from '../Notification';
 import {IconButton } from '@mui/material';
 import Delete from '@mui/icons-material/Delete';
 import Loader from "../Homepages/Loader"
+
 const useStyles = createTheme({
   card:{
     width: '90vw',
@@ -51,7 +52,7 @@ const ContactRequests = () => {
         
         const data = await response.json();
         setRequests(data);
-        if(requests[0]===undefined){
+        if(data[0]===undefined){
           setRequests([{
             _id: '1432',
             name: 'Sendername',
@@ -100,7 +101,7 @@ const ContactRequests = () => {
       <div className="container mt-5">
         <div className="row justify-content-center">
           {requests.map((request) => (
-            <div className="col-12 col-md-6 col-lg-4 mb-4" key={request._id}>
+            <div className="col-12 col-md-6 col-lg-4 mb-4" >
               <Card className={classes.card + " shadow-lg"}>
                 <CardContent>
                   <Typography sx={classes.name}>{request.name}</Typography>

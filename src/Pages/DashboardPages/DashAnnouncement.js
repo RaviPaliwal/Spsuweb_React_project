@@ -6,7 +6,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import DeleteAnnouncement from "./DeleteAnnouncement";
-import { Box, Button, Container, Paper, TextField } from "@mui/material";
+import { Box, Button, Container, TextField } from "@mui/material";
 
 const DashAnnouncement = () => {
   const [loaderprop, setloaderprop] = useState(false);
@@ -23,7 +23,7 @@ const DashAnnouncement = () => {
     };
 
     let response = await fetch(
-      "http://127.0.0.1:5000/api/announcement/getall",
+      "http://localhost:5000/api/announcement/getall",
       {
         method: "GET",
         headers: headersList,

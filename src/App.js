@@ -10,10 +10,9 @@ import DashCarousel from "./Pages/DashboardPages/DashCarousel";
 import About from "./Pages/Homepages/About";
 import DashFaculty from "./Pages/DashboardPages/DashFaculty";
 import Contact from "./Pages/Homepages/Contact";
-import Curriculum from "./Pages/Homepages/Curriculum";
 import DashIndustryColab from "./Pages/DashboardPages/DashIndustryColab"
 import FacultyPage from "./Pages/Homepages/FacultyPage";
-
+import NewsDashboard from "./Pages/DashboardPages/NewsDashboard";
 
 function App() {
   const router =createBrowserRouter(
@@ -24,7 +23,6 @@ function App() {
         <Route path="/announcements" element={<Announcement/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<AlertState><Contact/></AlertState>}/>  
-        <Route path="/curriculum" element={<AlertState><Curriculum/></AlertState>}/>  
         <Route path="/faculty" element={<FacultyPage/>}  />
        
         
@@ -44,7 +42,8 @@ function App() {
         <>
         <AlertState>
         <Notification/> 
-        <DashAnnouncement/>  
+        <DashAnnouncement/>
+        <NewsDashboard></NewsDashboard>  
         </AlertState>
         </>
         }/>
@@ -74,7 +73,8 @@ function App() {
         <DashFaculty/>  
         </AlertState>
         </>
-        }/>        
+        }/>  
+              
           
         <Route path="/admin/login" element={
         <>

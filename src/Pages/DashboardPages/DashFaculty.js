@@ -76,6 +76,7 @@ const DashFaculty = () => {
     bodyContent.append("linkedin", formData.linkedin);
     bodyContent.append("gmail", formData.email);
     bodyContent.append("twitter", formData.twitter);
+    bodyContent.append("vidvan", formData.vidvan);
 
     let response = await fetch("http://localhost:5000/api/faculty/addfaculty", {
       method: "POST",
@@ -233,6 +234,14 @@ const DashFaculty = () => {
                     className="mb-2 w-75"
                   />
                 </Grid>
+                  <Grid item xs={12}>
+                  <TextField
+                    label="Vidvan"
+                    name="vidvan"
+                    value={formData.vidvan}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
                 <Grid item xs={12}>
                   <TextField
                     label="Facebook"
@@ -243,17 +252,16 @@ const DashFaculty = () => {
                   />
                   <Grid item xs={12}>
                   <TextField
-                    label="Vidvan"
-                    name="vidvan"
-                    value={formData.vidvan}
-                    onChange={handleInputChange}
-                    className="mb-2 w-75"
-                  />
-                  <Grid item xs={12}>
-                  <TextField
                     label="Twitter"
                     name="twitter"
                     value={formData.twitter}
+                    onChange={handleInputChange}
+                    className="mb-2 w-75"
+                  />
+                  <TextField
+                    label="Instagram"
+                    name="instagram"
+                    value={formData.instagram}
                     onChange={handleInputChange}
                     className="mb-2 w-75"
                   />
