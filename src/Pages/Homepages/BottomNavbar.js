@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../Assets/spsu_logo_2.png";
+import logo from "../../Assets/spsulogo.png";
 import { Email, Phone, Facebook, Instagram, LinkedIn, WhatsApp, YouTube } from '@mui/icons-material';
 
 const BottomNavbar = () => {

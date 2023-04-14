@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-const icon = require('../../Assets/spsu_logo_2.png')
+const icon = require('../../Assets/spsulogo.png')
 export default function Loader(props) {
 return (
 <div>
