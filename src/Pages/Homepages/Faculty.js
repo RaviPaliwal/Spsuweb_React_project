@@ -5,19 +5,28 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Box,
   IconButton,
   Typography,
+  Link,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { Instagram, YouTube, Facebook, Mail } from "@mui/icons-material";
+import {
+  Instagram,
+  Facebook,
+  Twitter,
+  LinkedIn,
+  MailOutline,
+  EmojiObjects,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const FacultyPage = () => {
   const [faculty, setFaculty] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const numCards = 3; // Number of cards to display at once
   const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     setIsLoading(true);
     fetch("http://localhost:5000/api/faculty/getfaculty")
@@ -42,7 +51,23 @@ const FacultyPage = () => {
       prevIndex + numCards < faculty.length ? prevIndex + numCards : 0
     );
   };
+  const SocialLink = ({ link, icon }) => {
+    return (
+      <IconButton
+        component={Link}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {icon}
+      </IconButton>
+    );
+  };
 
+  const navigate = useNavigate();
+  const readmore = () => {
+    navigate("/faculty");
+  };
   const handlePrevClick = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex - numCards >= 0
@@ -51,18 +76,11 @@ const FacultyPage = () => {
     );
   };
 
-  const socialIcons = {
-    instagram: <Instagram />,
-    vidvan: <YouTube />,
-    facebook: <Facebook />,
-    gmail: <Mail />,
-  };
-
   return (
     <>
-      <h4 className="mb-3">
-        <center>Our Faculty</center>
-      </h4>
+      <h2 className="text-center mb-4" style={{ color: "#52616b" }}>
+        Our Faculty
+      </h2>
       <Grid
         className="mb-5"
         container
@@ -84,7 +102,7 @@ const FacultyPage = () => {
                   .slice(currentIndex, currentIndex + numCards)
                   .map((facultyMember) => (
                     <Grid item key={facultyMember._id}>
-                      <Card sx={{ width:300 ,maxWidth: 480, mx: 2, my: 2 }}>
+                      <Card sx={{ width: 300, maxWidth: 480, mx: 2, my: 2 }}>
                         <CardMedia
                           component="img"
                           height="350"
@@ -92,46 +110,77 @@ const FacultyPage = () => {
                           image={
                             "http://localhost:5000" + facultyMember.image.path
                           }
-                          alt={facultyMember.name+" Image"}
+                          alt={facultyMember.name + " Image"}
                         />
                         <CardContent>
-                          <Typography gutterBottom variant="h5" className="text-center" component="div">
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            className="text-center"
+                          >
                             {facultyMember.name}
                           </Typography>
                           <Typography
                             variant="subtitle2"
                             className="text-success text-center"
                           >
-                          {facultyMember.post}
+                            {facultyMember.post}
                           </Typography>
-                          <Typography variant="body2" color="text.secondary" className="text-center">
+                          <Typography
+                            variant="body2"
+                            color="text.secondary"
+                            className="text-center"
+                          >
                             {facultyMember.about}
                           </Typography>
-                          <Typography sx={{ mt: 1 }} className="text-center">
-                              {facultyMember.sociallinks&&<Typography sx={{ mt: 1 }}>
-                                  <Link
-                                    href={facultyMember.sociallinks[0].instagram}
-                                    target="_blank"
-                                    key={Date.now()+facultyMember.name}
-                                    color="inherit"
-                                  >
-                                    <IconButton>
-                                      {socialIcons[Instagram]}
-                                      <Instagram/>
-                                    </IconButton>
-                                  </Link>
-                                  <Link
-                                    href={facultyMember.sociallinks[0].facebook}
-                                    target="_blank"
-                                    key={facultyMember._id}
-                                    color="inherit"
-                                  >
-                                    <IconButton>
-                                      <YouTube/>
-                                    </IconButton>
-                                  </Link>
-                              </Typography>}
-                          </Typography>
+                          <Box sx={{ mt: 1 }} className="text-center" display="flex" justifyContent="center">
+  <Box>
+    {facultyMember.sociallinks[0].linkedin && (
+      <SocialLink
+        link={facultyMember.sociallinks[0].linkedin}
+        icon={<LinkedIn className="linkedin" />}
+      />
+    )}
+    {facultyMember.sociallinks[0].gmail && (
+      <SocialLink
+        link={`mailto:${facultyMember.sociallinks[0].gmail}`}
+        icon={<MailOutline className="text-success" />}
+      />
+    )}
+    {facultyMember.sociallinks[0].facebook && (
+      <SocialLink
+        link={facultyMember.sociallinks[0].facebook}
+        icon={<Facebook className="facebook" />}
+      />
+    )}
+    {facultyMember.sociallinks[0].twitter && (
+      <SocialLink
+        link={facultyMember.sociallinks[0].twitter}
+        icon={<Twitter className="facebook" />}
+      />
+    )}
+    {facultyMember.sociallinks[0].vidvan && (
+      <SocialLink
+        link={facultyMember.sociallinks[0].vidvan}
+        icon={<EmojiObjects style={{ color: "#0c3e52" }} />}
+      />
+    )}
+    {facultyMember.sociallinks[0].instagram && (
+      <SocialLink
+        link={facultyMember.sociallinks[0].instagram}
+        icon={<Instagram className="instagram" />}
+      />
+    )}
+  </Box>
+  <Typography
+    variant="body2"
+    color="textSecondary"
+    component="div"
+  >
+    {facultyMember.sociallinks[0].email}
+  </Typography>
+</Box>
+
                         </CardContent>
                       </Card>
                     </Grid>
@@ -143,13 +192,16 @@ const FacultyPage = () => {
                 <ChevronRight />
               </IconButton>
             </Grid>
-            <div className=' d-flex justify-content-center'>
-        <Link to='/faculty'>
-          <Button variant='contained' color='primary' sx={{ mt: 3 }}>
-            Read More
-          </Button>
-        </Link>
-      </div>
+            <div className=" d-flex justify-content-center">
+              <Button
+                onClick={readmore}
+                variant="contained"
+                color="primary"
+                sx={{ mt: 3 }}
+              >
+                Read More
+              </Button>
+            </div>
           </>
         )}
       </Grid>

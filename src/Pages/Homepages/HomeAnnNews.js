@@ -60,7 +60,7 @@ const HomeAnnNews = () => {
                 <Typography variant='h6' gutterBottom component='div' sx={{ color: '#1abc9c', textAlign: 'center' }}>
                   {truncateTitle(element.title)}
                 </Typography>
-                <Typography variant='body1' color='text.secondary' sx={{ textAlign: 'center' }}>
+                <Typography variant='body2' color='text.primary' sx={{ textAlign: 'center' }}>
                   {element.info}
                 </Typography>
               </CardContent>

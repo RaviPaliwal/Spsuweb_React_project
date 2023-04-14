@@ -21,7 +21,6 @@ const Homepage = () => {
     <hr/>
     <HomeAnnNews/>
     <Placements/>
-    <hr/>
     <Faculty/>
     <BottomNavbar/>
     </>

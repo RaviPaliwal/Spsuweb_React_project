@@ -218,12 +218,7 @@ const DashCarousel = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <input
-                    className="border w-75"
-                    sx={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      alignItems: "flex-end",
-                    }}
+                    className="w-75"
                     accept="image/*"
                     id="image-file-upload"
                     required

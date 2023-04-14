@@ -74,8 +74,8 @@ const DeleteAnnouncement = ({Ann,setAnn}) => {
                 <div className="col-12 col-md-6 col-lg-4 mb-4" key={request._id}>
                   <Card className={classes.card + " shadow-lg"}>
                     <CardContent>
-                      <Typography style={{fontWeight:"bold",color:"#54D787",fontSize:"1.1rem"}} className={classes.name}>{request.title}</Typography>
-                      <Typography className={classes.info}>{request.info}</Typography>
+                      <Typography style={{fontWeight:"bold",color:"#54D787",fontSize:"1.1rem"}} sx={classes.name}>{request.title}</Typography>
+                      <Typography sx={classes.info}> {request.info}</Typography>
                       <IconButton color="error" aria-label="delete" onClick={() => handleDelete(request.title)}>
                         <Delete />
                       </IconButton>

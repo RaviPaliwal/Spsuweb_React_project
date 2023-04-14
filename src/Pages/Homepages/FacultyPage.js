@@ -57,7 +57,7 @@ function FacultyPage() {
         {facultyData.map((faculty) => (
           <StyledCard key={faculty._id} style={{width:"auto"}}>
             <StyledCardMedia
-              style={{objectFit:"fill", height:"320px",objectPosition:"center"}}
+              style={{objectFit:"fill", height:"300px",objectPosition:"center"}}
               component="img"
               image={"http://localhost:5000" + faculty.image.path}
               alt={faculty.name}
@@ -74,7 +74,7 @@ function FacultyPage() {
                   {faculty.about}
                 </Typography>
               </CardContent>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Box sx={{ display: "flex", justifyContent: "center" ,pb:1 }}>
                 <Box>
                   {faculty.sociallinks[0].linkedin&&<SocialLink link={faculty.sociallinks[0].linkedin} icon={<LinkedIn className="linkedin" />} />}
                   {faculty.sociallinks[0].gmail&&<SocialLink link={`mailto:${faculty.sociallinks[0].gmail}`} icon={<MailOutline className="text-success" />} />}

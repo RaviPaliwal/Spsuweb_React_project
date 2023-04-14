@@ -101,7 +101,7 @@ const ContactRequests = () => {
       <div className="container mt-5">
         <div className="row justify-content-center">
           {requests.map((request) => (
-            <div className="col-12 col-md-6 col-lg-4 mb-4" >
+            <div key={request._id} className="col-12 col-md-6 col-lg-4 mb-4" >
               <Card className={classes.card + " shadow-lg"}>
                 <CardContent>
                   <Typography sx={classes.name}>{request.name}</Typography>

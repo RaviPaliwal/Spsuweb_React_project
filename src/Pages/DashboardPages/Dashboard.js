@@ -4,6 +4,7 @@ import AlertContext from "../../Contexts/Alert/alertContext";
 import BottomNavbar from "../Homepages/BottomNavbar";
 import ContactRequests from "./ContactRequests";
 import UploadPdf from "./UploadPdf";
+import adminavatar from "../../Assets/adminavatar.svg"
 import {
   AppBar,
   Box,
@@ -13,13 +14,20 @@ import {
   TextField,
   Toolbar,
   Typography,
-  List,
   ListItem,
-  ListItemText,
   Avatar,
   Divider,
   ListItemAvatar,
+  TableContainer,
+  Table,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
 } from "@mui/material";
+
+
+
 import DashNavbar from "./DashNavbar";
 
 const Dashboard = () => {
@@ -285,30 +293,34 @@ const Dashboard = () => {
                 Access.
               </Typography>
             ) : (
-              <List
-                className="d-flex flex-wrap justify-content-center"
-                style={{ maxWidth: "100%" }}
-              >
-                {admins.map((admin) => (
-                  <React.Fragment key={admin._id}>
-                    <ListItem
-                      className="bg-success m-2 rounded-4"
-                      style={{ flexBasis: "20%", padding: "8px" }}
-                    >
-                      <ListItemAvatar>
-                        <Avatar alt={admin.username} src={admin.profilePic} />
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={admin.username}
-                        secondary={admin.email}
-                      />
-                    </ListItem>
-                    {(admins.indexOf(admin) + 1) % 4 === 0 && (
-                      <div style={{ flexBasis: "100%", height: "0" }}></div>
-                    )}
-                  </React.Fragment>
-                ))}
-              </List>
+<div className="container-xl border">
+<TableContainer>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Avatar</TableCell>
+        <TableCell>Username</TableCell>
+        <TableCell>Email</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {admins.map((admin) => (
+        <TableRow key={admin._id}>
+          <TableCell component="th" scope="row">
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar alt={admin.username} src={adminavatar} />
+              </ListItemAvatar>
+            </ListItem>
+          </TableCell>
+          <TableCell>{admin.username}</TableCell>
+          <TableCell>{admin.email}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+        </TableContainer>
+</div>
             )}
           </Box>
         </Container>

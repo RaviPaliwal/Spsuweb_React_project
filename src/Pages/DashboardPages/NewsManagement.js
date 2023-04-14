@@ -100,7 +100,6 @@ function NewsManagement() {
               label="Description"
               placeholder="Enter description"
               minRows={5}
-              fullWidth
               value={description}
               onChange={handleDescriptionChange}
               required

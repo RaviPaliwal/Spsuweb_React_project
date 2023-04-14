@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import icimg from "../../Assets/collabsvg.svg"
 const IndustryColab = () => {
   const [industryCollaborations, setIndustryCollaborations] = useState([]);
 
@@ -17,7 +17,9 @@ const IndustryColab = () => {
   return (
     <>
     <h2 style={{ color: '#52616b',marginTop:"2rem",textAlign: 'center', marginBottom: '1rem' }}>Industry Collaborations</h2>
-    <p style={{ textAlign: 'center', marginBottom: '2rem' }}></p>
+    <div className="conatainer text-center mt-5 ">
+      <img className='icimg w-25' src={icimg} alt="industry Collab" />
+    </div>
     <div className="container">
       <section
         className="mt-5"

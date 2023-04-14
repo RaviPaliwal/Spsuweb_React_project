@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Button,
   Container,
@@ -12,9 +12,14 @@ import {
 } from "@mui/material";
 import DashNavbar from "./DashNavbar";
 import Notification from "../Notification";
+import AlertContext from "../../Contexts/Alert/alertContext";
 import Loader from "../Homepages/Loader";
 import AccessDenied from "./AccessDenied";
+
+
 const DashIndustryColab = () => {
+  const ac  = useContext(AlertContext)
+  const {update} = ac;
   const [industryCollaborations, setIndustryCollaborations] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -52,7 +57,7 @@ const DashIndustryColab = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        update(data.msg)
         setgetdata(getdata+1);
       })
       .catch((error) => console.error(error));
@@ -70,7 +75,8 @@ const DashIndustryColab = () => {
       body: JSON.stringify({ title }),
     })
       .then((response) => response.json())
-      .then(() => {
+      .then((data) => {
+        update(data.msg)
         const updatedIndustryCollaborations = industryCollaborations.filter(
           (industryCollaboration) => industryCollaboration.title !== title
         );
@@ -115,7 +121,9 @@ if(localStorage.getItem("loggedin") === "true"){
             />
           </Grid>
           <Grid item xs={12}>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+            <input className="custom-file-upload" type="file" accept="image/*" onChange={handleImageChange} />
+            <p className="formnote">Better if you add image of Ratio 1:1 or 300X300</p>
+          
           </Grid>
           <Grid item xs={12}>
             <Button
