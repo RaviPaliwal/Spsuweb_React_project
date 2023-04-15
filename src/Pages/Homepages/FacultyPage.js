@@ -40,7 +40,7 @@ function FacultyPage() {
 
   useEffect(() => {
     async function fetchFacultyData() {
-      const response = await fetch("http://localhost:5000/api/faculty/getfaculty");
+      const response = await fetch("http://34.125.182.92/api/faculty/getfaculty");
       const data = await response.json();
       setFacultyData(data);
     }
@@ -59,7 +59,7 @@ function FacultyPage() {
             <StyledCardMedia
               style={{objectFit:"fill", height:"300px",objectPosition:"center"}}
               component="img"
-              image={"http://localhost:5000" + faculty.image.path}
+              image={"http://34.125.182.92" + faculty.image.path}
               alt={faculty.name}
             />
             <Box className="text-center">

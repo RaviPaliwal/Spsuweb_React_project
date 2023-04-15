@@ -26,7 +26,7 @@ function NewsManagement() {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/news/getall')
+    fetch('http://34.125.182.92/api/news/getall')
       .then(res => res.json())
       .then(data => setNewsList(data))
       .catch(err => console.error(err));
@@ -50,7 +50,7 @@ function NewsManagement() {
     formData.append('title', title);
     formData.append('description', description);
     formData.append('image', image);
-    await fetch('http://localhost:5000/api/news/add', {
+    await fetch('http://34.125.182.92/api/news/add', {
       method: 'POST',
       body: formData
     })
@@ -65,7 +65,7 @@ function NewsManagement() {
   };
 
   const handleDeleteNews = (newsId) => {
-    fetch(`http://localhost:5000/api/news/${newsId}`, {
+    fetch(`http://34.125.182.92/api/news/${newsId}`, {
       method: 'DELETE'
     })
       .then(res => res.json())

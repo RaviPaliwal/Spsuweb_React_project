@@ -1,12 +1,11 @@
 const connect = require('./mainDB')
 const express = require('express')
 const cors = require('cors');
+const path = require('path')
 const bodyParser = require('body-parser');
 connect();
 const port = 5000
 const app = express()
-
-
 
 
 //Routes
@@ -37,3 +36,4 @@ app.use('/api/news', require('./Routes/newsroute'))
   app.listen(port,'0.0.0.0', () => {
     console.log(`Data Base is On Port ${port}`)
   })
+

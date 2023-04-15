@@ -14,7 +14,7 @@ const HomeAnnNews = () => {
   const [news, setNews] = useState([]);
   useEffect(() => {
       const fetchNews = async () => {
-        const response = await fetch('http://localhost:5000/api/news/getall');
+        const response = await fetch('http://34.125.182.92/api/news/getall');
         const data = await response.json();
         setNews(data);
       };
@@ -27,7 +27,7 @@ const HomeAnnNews = () => {
         'Content-Type': 'application/json',
       };
 
-      let response = await fetch(`http://localhost:5000/api/announcement/getbymonth-year/${date()}`, {
+      let response = await fetch(`http://34.125.182.92/api/announcement/getbymonth-year/${date()}`, {
         method: 'GET',
         headers: headersList,
       });
@@ -75,7 +75,7 @@ const HomeAnnNews = () => {
       key={item._id}
       title={item.title}
       description={item.description}
-      imageUrl={item.image && "http://localhost:5000"+item.image.path}
+      imageUrl={item.image && "http://34.125.182.92"+item.image.path}
       date={item.created_at}
     />
   ))}

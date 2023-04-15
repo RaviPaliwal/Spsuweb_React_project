@@ -40,7 +40,7 @@ const Dashboard = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:5000/auth/admins", {
+        const response = await fetch("http://34.125.182.92/auth/admins", {
           method: "GET",
           headers: {
             Accept: "*/*",
@@ -99,7 +99,7 @@ const Dashboard = () => {
 
     const bodyContent = JSON.stringify(adminData);
     //console.log(bodyContent);
-    const response = await fetch("http://localhost:5000/auth/signup", {
+    const response = await fetch("http://34.125.182.92/auth/signup", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -120,7 +120,7 @@ const Dashboard = () => {
     };
 
     const bodyContent = JSON.stringify(deleteData);
-    const response = await fetch("http://localhost:5000/auth/deleteuser", {
+    const response = await fetch("http://34.125.182.92/auth/deleteuser", {
       method: "POST",
       body: bodyContent,
       headers: headersList,

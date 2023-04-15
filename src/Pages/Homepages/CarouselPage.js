@@ -17,7 +17,7 @@ export default function App() {
       let headersList = {
         "Accept": "*/*",
        }
-       let response = await fetch("http://localhost:5000/api/carousel/getslides", { 
+       let response = await fetch("http://34.125.182.92/api/carousel/getslides", { 
          method: "GET",
          headers: headersList
        });
@@ -48,7 +48,7 @@ export default function App() {
       >
         {
         carousel.map((element)=>{
-          let uriraw = "http://localhost:5000"+element.image.path;
+          let uriraw = "http://34.125.182.92"+element.image.path;
           let uri =encodeURI(uriraw);
           //console.log(uri);
           return(

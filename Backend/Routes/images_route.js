@@ -38,7 +38,7 @@ router.get("/getbytitle", async (req, res) => {
   const a = await ImageModel.findOne({ title: req.body.title });
   if (a) {
     res.json({
-      url: "http://localhost:5000/images/" + a.title + a.image.extention,
+      url: "http://34.125.182.92/images/" + a.title + a.image.extention,
     });
   } else {
     res.json({ url: null });

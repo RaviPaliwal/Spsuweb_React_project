@@ -41,7 +41,7 @@ router.post(
 );
 
 //find by month-year
-//http://localhost:5000/api/announcement/getbymonth-year/2-2023
+//http://34.125.182.92/api/announcement/getbymonth-year/2-2023
 router.get("/getbymonth-year/:month", async (req, res) => {
   try {
     let range = req.params.month;
@@ -55,7 +55,7 @@ router.get("/getbymonth-year/:month", async (req, res) => {
 });
 
 //find by month-year
-//http://localhost:5000/api/announcement/getall
+//http://34.125.182.92/api/announcement/getall
 router.get("/getall", async (req, res) => {
   try {
     const content = await Announcement.find().sort({ timestamp: -1 });
@@ -66,7 +66,7 @@ router.get("/getall", async (req, res) => {
 });
 
 //Delete by month-year
-//http://localhost:5000/api/announcement/deletebymonth-year/2-2023
+//http://34.125.182.92/api/announcement/deletebymonth-year/2-2023
 router.post("/deletebymonth-year/:month", fetchuser, async (req, res) => {
   try {
     let param = req.params.month;

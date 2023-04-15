@@ -28,7 +28,7 @@ const Contact = () => {
 
     let bodyContent = JSON.stringify(formData);
 
-    let response = await fetch("http://localhost:5000/api/contactus/addreq", { 
+    let response = await fetch("http://34.125.182.92/api/contactus/addreq", { 
       method: "POST",
       body: bodyContent,
       headers: headersList

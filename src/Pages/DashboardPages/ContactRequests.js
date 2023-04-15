@@ -45,7 +45,7 @@ const ContactRequests = () => {
           "Accept": "*/*",
           "Content-Type": "application/json"
         };
-        const response = await fetch("http://localhost:5000/api/contactus/getrequests", { 
+        const response = await fetch("http://34.125.182.92/api/contactus/getrequests", { 
           method: "GET",
           headers: headersList
         });
@@ -78,7 +78,7 @@ const ContactRequests = () => {
         "Content-Type": "application/json"
       };
       
-      const response = await fetch(`http://localhost:5000/api/contactus/deleterequest/${id}`, { 
+      const response = await fetch(`http://34.125.182.92/api/contactus/deleterequest/${id}`, { 
         method: "DELETE",
         headers: headersList
       });

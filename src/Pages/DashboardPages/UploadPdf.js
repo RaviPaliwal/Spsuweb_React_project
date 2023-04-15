@@ -33,7 +33,7 @@ function UploadPdf({update}) {
     formData.append("title", selectedTitle);
     formData.append("pdf", selectedFile);
     setload(true);
-    fetch("http://localhost:5000/api/pdf/add", {
+    fetch("http://34.125.182.92/api/pdf/add", {
       method: "POST",
       body: formData,
     })

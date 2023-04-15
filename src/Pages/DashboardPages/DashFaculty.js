@@ -78,7 +78,7 @@ const DashFaculty = () => {
     bodyContent.append("twitter", formData.twitter);
     bodyContent.append("vidvan", formData.vidvan);
 
-    let response = await fetch("http://localhost:5000/api/faculty/addfaculty", {
+    let response = await fetch("http://34.125.182.92/api/faculty/addfaculty", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -120,7 +120,7 @@ const DashFaculty = () => {
       });
       setloaderprop(true);
       let response = await fetch(
-        "http://localhost:5000/api/faculty/deletefaculty",
+        "http://34.125.182.92/api/faculty/deletefaculty",
         {
           method: "POST",
           headers: headersList,
@@ -139,7 +139,7 @@ const DashFaculty = () => {
 
   useEffect(() => {
     // Fetch image URLs from API
-    fetch("http://localhost:5000/api/faculty/getfaculty")
+    fetch("http://34.125.182.92/api/faculty/getfaculty")
       .then((response) => response.json())
       .then((data) => setFaculty(data));
   }, [refresh]);
@@ -330,7 +330,7 @@ const DashFaculty = () => {
                   {Faculty.map((e) => (
                     <div key={e._id} className=" col-md-12  mb-3">
                       <img
-                        src={"http://localhost:5000" + e.image.path}
+                        src={"http://34.125.182.92" + e.image.path}
                         alt={`${e.name}`}
                         className="img-fluid w-75 rounded-4 overflow-scroll h-auto"
                       />

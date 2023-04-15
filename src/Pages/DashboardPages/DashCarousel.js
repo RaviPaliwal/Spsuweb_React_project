@@ -64,7 +64,7 @@ const DashCarousel = () => {
     bodyContent.append("info", formData.info);
     bodyContent.append("image", formData.image);
     setload(true);
-    let response = await fetch("http://localhost:5000/api/carousel/addslide", {
+    let response = await fetch("http://34.125.182.92/api/carousel/addslide", {
       method: "POST",
       body: bodyContent,
       headers: headersList,
@@ -107,7 +107,7 @@ const DashCarousel = () => {
       });
       
       let response = await fetch(
-        "http://localhost:5000/api/carousel/deleteslidebytitle",
+        "http://34.125.182.92/api/carousel/deleteslidebytitle",
         {
           method: "POST",
           headers: headersList,
@@ -132,7 +132,7 @@ const DashCarousel = () => {
       });
       
       let response = await fetch(
-        "http://localhost:5000/api/carousel/deleteslidebytitle",
+        "http://34.125.182.92/api/carousel/deleteslidebytitle",
         {
           method: "POST",
           headers: headersList,
@@ -150,7 +150,7 @@ const DashCarousel = () => {
 
   useEffect(() => {
     // Fetch image URLs from API
-    fetch("http://localhost:5000/api/carousel/getslides")
+    fetch("http://34.125.182.92/api/carousel/getslides")
       .then((response) => response.json())
       .then((data) => setImages(data));
   }, [refresh]);
@@ -278,7 +278,7 @@ const DashCarousel = () => {
                   {images.map((e) => (
                     <div key={e._id} className=" col-md-12  mb-3">
                       <img
-                        src={"http://localhost:5000" + e.image.path}
+                        src={"http://34.125.182.92" + e.image.path}
                         alt={`${e.title}`}
                         className="img-fluid w-75 rounded-4 overflow-scroll h-auto"
                       />
