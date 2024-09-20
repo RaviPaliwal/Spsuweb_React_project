@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Department of Computer Science Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a responsive and user-friendly departmental website developed using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). The website provides comprehensive information about the department's courses, programs, faculty members, research activities, and more. It is designed to be easily accessible on all devices and offers a scalable solution for maintaining and updating departmental data.
 
-## Available Scripts
+## Technologies Used
 
-In the project directory, you can run:
+- **MongoDB**: NoSQL database for storing the website's data.
+- **Express.js**: Backend web application framework for handling HTTP requests and APIs.
+- **React.js**: Front-end library for building user interfaces and ensuring a responsive design.
+- **Node.js**: JavaScript runtime environment used to run server-side applications.
 
-### `npm start`
+## Project Speciality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User-friendly and responsive design**: Built using React.js and Bootstrap to ensure a seamless user experience across devices.
+- **Comprehensive content management**: A fully developed platform for showcasing departmental offerings, including courses, faculty details, and research activities.
+- **Secure and scalable**: Features like user authentication and scalability with cloud hosting platforms like AWS are implemented for security and growth.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instructions to Clone and Run the Project
 
-### `npm test`
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-repo-url.git
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Navigate to the project directory**:
+    ```bash
+    cd your-project-folder
+    ```
 
-### `npm run build`
+3. **Install dependencies for both client and server**:
+    - Install server dependencies:
+      ```bash
+      cd server
+      npm install
+      ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - Install client dependencies:
+      ```bash
+      cd client
+      npm install
+      ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Set up environment variables**:
+    - Create a `.env` file in the `server` directory and configure your MongoDB URI, JWT secret, and other relevant environment variables.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **Run the project**:
+    - Start the server:
+      ```bash
+      cd server
+      npm start
+      ```
+    - Start the client:
+      ```bash
+      cd client
+      npm start
+      ```
 
-### `npm run eject`
+6. **Access the website**:
+    Open your browser and navigate to `http://localhost:3000` to view the website.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contribution
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions from the team:
+- **Ravi Paliwal**, **Shashwat Tiwari**, **Angothu Muni**, **Cheryala Nikhil**, and **Raja Rawat** collaborated on this project.
