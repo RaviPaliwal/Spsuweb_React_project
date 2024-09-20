@@ -19,43 +19,43 @@ This project is a responsive and user-friendly departmental website developed us
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repo-url.git
+    git clone https://github.com/RaviPaliwal/Spsuweb_React_project/
     ```
 
 2. **Navigate to the project directory**:
     ```bash
-    cd your-project-folder
+    cd  Spsuweb_React_project/
     ```
 
 3. **Install dependencies for both client and server**:
+
+   - Install client dependencies:
+      ```bash
+      npm install
+      ```
+      
     - Install server dependencies:
       ```bash
-      cd server
+      cd Backend
       npm install
       ```
 
-    - Install client dependencies:
-      ```bash
-      cd client
-      npm install
-      ```
-
-4. **Set up environment variables**:
+5. **Set up environment variables**:
     - Create a `.env` file in the `server` directory and configure your MongoDB URI, JWT secret, and other relevant environment variables.
 
-5. **Run the project**:
-    - Start the server:
+6. **Run the project**:
+      - Start the client:
       ```bash
-      cd server
       npm start
       ```
-    - Start the client:
+      
+    - Start the server:
       ```bash
-      cd client
+      cd Backend
       npm start
       ```
 
-6. **Access the website**:
+8. **Access the website**:
     Open your browser and navigate to `http://localhost:3000` to view the website.
 
 ## Contribution
